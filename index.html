@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ring Display - Blue Theme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
+            overflow: auto;
+            font-family: "Megrim", system-ui;
+            color: white;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: transparent;
+            z-index: 10;
+            box-sizing: border-box;
+        }
+
+        .title {
+    font-size: clamp(1.5em, 5vw, 3.5em);
+    font-weight: 700;
+    font-family: "Megrim", system-ui;
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 183, 235, 0.8), 
+                 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: glowPulse 4s linear infinite;
+}
+
+@keyframes glowPulse {
+    0% {
+        text-shadow: 2px 2px 5px rgba(0, 183, 235, 0.8), 
+                     2px 2px 10px rgba(255, 255, 255, 0.5);
+    }
+    25% {
+        text-shadow: -2px 2px 5px rgba(0, 183, 235, 0.8), 
+                     -2px 2px 10px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: -2px -2px 5px rgba(0, 183, 235, 0.8), 
+                     -2px -2px 10px rgba(255, 255, 255, 0.5);
+    }
+    75% {
+        text-shadow: 2px -2px 5px rgba(0, 183, 235, 0.8), 
+                     2px -2px 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        text-shadow: 2px 2px 5px rgba(0, 183, 235, 0.8), 
+                     2px 2px 10px rgba(255, 255, 255, 0.5);
+    }
+}
+        .links {
+            display: flex;
+            gap: clamp(10px, 3vw, 40px);
+        }
+
+        .links a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1em, 3vw, 1.2em);
+            transition: opacity 0.3s ease;
+        }
+
+        .links a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            position: relative;
+            width: clamp(150px, 50vw, 300px);
+            height: clamp(150px, 50vw, 300px);
+            margin-top: clamp(120px, 30vh, 350px);
+            margin-bottom: 50px;
+        }
+
+        .ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: transparent;
+            box-shadow: 0 0 15px rgba(0, 183, 235, 0.8), 
+                        0 0 30px rgba(255, 255, 255, 0.5);
+            z-index: 1;
+        }
+
+        .ring::before {
+            content: '';
+            position: absolute;
+            inset: -11px;
+            background: conic-gradient(#00b7eb, #ffffff, #00b7eb);
+            border-radius: 50%;
+            animation: rotateGradient 4s linear infinite;
+            z-index: -2;
+        }
+
+        .ring::after {
+            content: '';
+            position: absolute;
+            inset: 11px;
+            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .satellite {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: clamp(50px, 15vw, 100px);
+            height: clamp(50px, 15vw, 100px);
+            margin: calc(-1 * clamp(50px, 15vw, 100px) / 2);
+            z-index: 0;
+        }
+
+        .satellite-content {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: transparent;
+            box-shadow: 0 0 5px rgba(0, 183, 235, 0.8), 
+                        0 0 10px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .satellite:hover .satellite-content {
+            transform: scale(1.2);
+        }
+
+        .satellite-content::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: conic-gradient(#00b7eb, #ffffff, #00b7eb);
+            border-radius: 50%;
+            animation: rotateGradient 4s linear infinite;
+            z-index: -2;
+        }
+
+        .satellite-content::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .satellite-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: clamp(10px, 3vw, 14px);
+            font-weight: bold;
+            text-align: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: clamp(10px, 3vw, 16px);
+            font-weight: 700;
+            text-align: center;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .center-text.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        footer {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: clamp(10px, 2vw, 14px);
+            background: transparent;
+            box-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
+            margin-top: auto;
+        }
+
+        @keyframes rotateGradient {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+            .links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin-top: clamp(100px, 25vh, 200px);
+            }
+            .ring::before {
+                inset: -8px;
+            }
+            .ring::after {
+                inset: 8px;
+            }
+            .satellite-content::before {
+                inset: -3px;
+            }
+            .satellite-content::after {
+                inset: 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="title">Healthy Self</div>
+        <div class="links">
+            <a href="services.html">Services</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="ring"></div>
+        <div class="center-text" id="centerText"></div>
+        <div class="satellite" data-angle-offset="0" data-href="energy.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Energy</span>
+            </div>
+        </div>
+        <div class="satellite" data-angle-offset="32.7272" data-href="focus.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Focus</span>
+            </div>
+        </div>
+        <div class="satellite" data-angle-offset="65.4544" data-href="balance.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Balance</span>
+            </div>
+        </div>
+        <div class="satellite" data-angle-offset="98.1816" data-href="strength.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Strength</span>
+            </div>
+        </div>
+        <div class="satellite" data-angle-offset="130.9088" data-href="peace.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Peace</span>
+            </div>
+        </div>
+        <div class="satellite" data-angle-offset="163.6360" data-href="clarity.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Clarity</span>
+            </div>
+        </div>
+        <div class="satellite" data-angle-offset="196.3632" data-href="harmony.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Harmony</span>
+            </div>
+        </div>
+        <div class="satellite" data-angle-offset="229.0904" data-href="vitality.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Vitality</span>
+            </div>
+        </div>
+        <div class="satellite" data-angle-offset="261.8176" data-href="joy.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Joy</span>
+            </div>
+        </div>
+        <div class="satellite" data-angle-offset="294.5448" data-href="growth.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Growth</span>
+            </div>
+        </div>
+        <div class="satellite" data-angle-offset="327.2720" data-href="calm.html">
+            <div class="satellite-content">
+                <span class="satellite-text">Calm</span>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Healthy Self. All rights reserved.
+    </footer>
+    <script>
+        const satellites = document.querySelectorAll('.satellite');
+        const container = document.querySelector('.container');
+        const centerText = document.querySelector('#centerText');
+        const baseSpeed = 360 / 15; // Degrees per second for normal speed (360° / 15s)
+        const slowSpeed = baseSpeed / 1.67; // ~25s per rotation
+        const verySlowSpeed = baseSpeed / 2.67; // ~40s per rotation
+        let currentSpeed = baseSpeed;
+        let hoverTimeout;
+        let lastTime = performance.now();
+
+        // Map satellite words to associated phrases
+        const wordToPhrase = {
+            'Energy': 'Boost Your Drive',
+            'Focus': 'Sharpen Your Mind',
+            'Balance': 'Find Your Center',
+            'Strength': 'Build Resilience',
+            'Peace': 'Embrace Serenity',
+            'Clarity': 'See Clearly Now',
+            'Harmony': 'Live in Sync',
+            'Vitality': 'Thrive with Vigor',
+            'Joy': 'Spark Happiness',
+            'Growth': 'Evolve Every Day',
+            'Calm': 'Stay Tranquil'
+        };
+
+        // Calculate initial angle offsets
+        satellites.forEach(satellite => {
+            const angleOffset = parseFloat(satellite.dataset.angleOffset);
+            satellite.angle = angleOffset;
+        });
+
+        // Animation loop
+        function animate() {
+            const now = performance.now();
+            const deltaTime = (now - lastTime) / 1000; // Time in seconds
+            lastTime = now;
+
+            satellites.forEach(satellite => {
+                satellite.angle += currentSpeed * deltaTime;
+                satellite.angle %= 360; // Keep angle within 0-360
+                const radius = window.innerWidth <= 480 ? 100 : 250; // Smaller radius on mobile
+                satellite.style.transform = `rotate(${satellite.angle}deg) translateX(${radius}px)`;
+                const text = satellite.querySelector('.satellite-text');
+                if (text) {
+                    text.style.transform = `translate(-50%, -50%) rotate(-${satellite.angle}deg)`;
+                }
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        // Start animation
+        requestAnimationFrame(animate);
+
+        // Hover and click event handlers for satellites
+        satellites.forEach(satellite => {
+            satellite.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimeout);
+                currentSpeed = slowSpeed;
+                const word = satellite.querySelector('.satellite-text').textContent;
+                centerText.textContent = wordToPhrase[word] || '';
+                centerText.classList.add('show');
+                hoverTimeout = setTimeout(() => {
+                    currentSpeed = verySlowSpeed;
+                }, 2000);
+            });
+
+            satellite.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimeout);
+                currentSpeed = baseSpeed;
+                centerText.classList.remove('show');
+                centerText.textContent = '';
+            });
+
+            satellite.addEventListener('click', () => {
+                const href = satellite.dataset.href;
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+
+            // Touch support for mobile
+            satellite.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                clearTimeout(hoverTimeout);
+                currentSpeed = slowSpeed;
+                const word = satellite.querySelector('.satellite-text').textContent;
+                centerText.textContent = wordToPhrase[word] || '';
+                centerText.classList.add('show');
+                hoverTimeout = setTimeout(() => {
+                    currentSpeed = verySlowSpeed;
+                }, 2000);
+            });
+
+            satellite.addEventListener('touchend', () => {
+                clearTimeout(hoverTimeout);
+                currentSpeed = baseSpeed;
+                centerText.classList.remove('show');
+                centerText.textContent = '';
+                const href = satellite.dataset.href;
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
