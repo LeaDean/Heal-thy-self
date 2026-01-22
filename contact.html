@@ -3,29 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ring Display - Blue Theme</title>
+    <title>Contact | Heal-thy-self</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-   
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="title">Healthy Self</div>
-        <div class="links">
-            <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-            <a href="index.html">Home</a>
-        </div>
-    </nav>
-    <div class="content">
-        <div class="content-text">{Subject}</div>
+
+<div class="stars-bright"></div>
+
+<nav class="navbar">
+    <div class="title">Heal-thy-self</div>
+    <div class="links">
+        <a href="services.html">Services</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
     </div>
-    <footer>
-        &copy; 2025 Healthy Self. All rights reserved.
-    </footer>
+</nav>
+
+<main>
+    <div class="content-wrapper">
+
+        <h1>Contact</h1>
+
+        <p style="text-align: center; font-size: clamp(1.1rem, 3vw, 1.35rem); margin-bottom: 2.8rem;">
+            Let's begin your journey toward a healthier, more aligned self.<br>
+            Reach out — I'm here to listen.
+        </p>
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+                <div class="card-glow"></div>
+                <h3>Email</h3>
+                <p class="contact-value">
+                    <a href="mailto:hello@heal-thy-self.co.uk">hello@heal-thy-self.co.uk</a>
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <div class="card-glow"></div>
+                <h3>Phone / WhatsApp</h3>
+                <p class="contact-value">
+                    <a href="tel:+447123456789">+44 7123 456 789</a>
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <div class="card-glow"></div>
+                <h3>Session Booking</h3>
+                <p class="contact-value">
+                    <a href="https://calendly.com/yourname" target="_blank" rel="noopener">
+                        Book a free discovery call →
+                    </a>
+                </p>
+            </div>
+
+        </div>
+
+        <div style="margin: 4rem auto 2rem; max-width: 680px;">
+            <h2>Send a Message</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Your name" required>
+                    <input type="email" name="email" placeholder="Your email" required>
+                </div>
+                <textarea name="message" placeholder="How can I support you on your journey?" rows="6" required></textarea>
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </form>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    © 2025 Heal-thy-self. All rights reserved.
+</footer>
+
+<!-- Mist transition overlay – same on all pages -->
+<div class="mist-transition" id="mistOverlay"></div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
