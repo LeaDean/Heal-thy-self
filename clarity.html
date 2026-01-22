@@ -3,101 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{Subject} - Healthy Self</title>
+    <title>Ring Display - Blue Theme</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
-            font-family: 'Roboto', sans-serif;
-            color: white;
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: transparent;
-            z-index: 10;
-            box-sizing: border-box;
-        }
-
-        .title {
-            font-size: clamp(2em, 5vw, 3.5em);
-            font-weight: 700;
-        }
-
-        .links {
-            display: flex;
-            gap: clamp(15px, 3vw, 30px);
-        }
-
-        .links a {
-            color: white;
-            text-decoration: none;
-            font-size: clamp(1.2em, 3vw, 1.2em);
-            transition: opacity 0.3s ease;
-        }
-
-        .links a:hover {
-            opacity: 0.8;
-        }
-
-        .content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .content-text {
-            font-size: clamp(2em, 5vw, 4em);
-            font-weight: 700;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-        }
-
-        footer {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: clamp(12px, 2vw, 14px);
-            background: transparent;
-            box-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-            margin-top: auto;
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+   
 </head>
 <body>
     <nav class="navbar">
-        <div class="title">Healthy Self</div>
+        <div class="title">Clarity</div>
         <div class="links">
             <a href="#services">Services</a>
             <a href="#testimonials">Testimonials</a>
@@ -105,11 +21,29 @@
             <a href="index.html">Home</a>
         </div>
     </nav>
-    <div class="content">
-        <div class="content-text">{Subject}</div>
+  <!-- Keep your navbar, animated ring container, etc. exactly as in index -->
+
+<main>
+    <div class="content-wrapper">
+        <h1>Clarity</h1>
+        
+        <h2>Removing Doubt</h2>
+        <p>Does it makes sense that everything has a purpose? Or instead, to think that everything has no purpose?  It seems hard to deny that we are moving forward within a process of evolution.  Wether we like it or not, we are explorers in a strange world, having had to learn and to have grown in order to survive.</p>
+
+
+        
+        <h3>The Power of Sapphire</h3>
+        <p>Sapphires, born under immense pressure, carry the blue essence of distant nebulae...</p>
+        
+        <!-- More sections as needed -->
     </div>
+</main>
+
+<!-- Keep your footer -->
     <footer>
         &copy; 2025 Healthy Self. All rights reserved.
     </footer>
+    <!-- Mist transition overlay – same on all pages -->
+<div class="mist-transition" id="mistOverlay"></div>
 </body>
 </html>
