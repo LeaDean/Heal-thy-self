@@ -636,3 +636,127 @@ textarea {
         gap: 1.2rem;
     }
 }
+
+/* ─────────────────────────────────────────────
+   About page enhancements
+───────────────────────────────────────────── */
+
+.about-hero {
+    text-align: center;
+    margin: 2rem 0 4rem;
+}
+
+.lead {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    line-height: 1.7;
+    color: #b0e8ff;
+    font-weight: 300;
+    max-width: 780px;
+    margin: 0 auto;
+    letter-spacing: 0.3px;
+}
+
+.about-section {
+    margin: 4.5rem 0;
+}
+
+.about-section h2 {
+    text-align: center;
+    margin-bottom: 1.6rem;
+}
+
+.journey p,
+.philosophy p {
+    margin-bottom: 1.5rem;
+}
+
+.quote {
+    font-family: "Megrim", system-ui;
+    font-size: clamp(1.45rem, 4.2vw, 2.1rem);
+    color: #70d8ff;
+    text-align: center;
+    margin: 3rem 1rem;
+    padding: 1.5rem 0;
+    line-height: 1.55;
+    text-shadow: 0 0 14px rgba(112, 216, 255, 0.4);
+}
+
+.training-list {
+    list-style: none;
+    padding: 0;
+    max-width: 720px;
+    margin: 0 auto 2rem;
+}
+
+.training-list li {
+    font-size: 1.14rem;
+    margin: 1.1rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: #d8f0ff;
+}
+
+.training-list li::before {
+    content: "⟡";
+    position: absolute;
+    left: 0.2rem;
+    color: #00d4ff;
+    font-size: 1.4rem;
+}
+
+.note {
+    text-align: center;
+    font-style: italic;
+    color: #a0c8ff;
+    font-size: 1.08rem;
+    margin-top: 2.5rem;
+}
+
+.invitation-section {
+    text-align: center;
+    margin: 6rem 0 4rem;
+    padding: 3rem 1.5rem;
+    background: rgba(10, 20, 50, 0.4);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 183, 235, 0.12);
+    backdrop-filter: blur(10px);
+}
+
+.invitation-text {
+    font-size: clamp(1.35rem, 4.2vw, 1.85rem);
+    line-height: 1.65;
+    color: #e8ffff;
+    margin-bottom: 2.2rem;
+}
+
+.glow-button {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    border: 2px solid #00c0ff;
+    border-radius: 999px;
+    background: linear-gradient(145deg, rgba(0, 192, 255, 0.12), rgba(0, 140, 200, 0.08));
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px rgba(0, 192, 255, 0.25);
+    transition: all 0.45s ease;
+}
+
+.glow-button:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 0 45px rgba(0, 192, 255, 0.45);
+    background: linear-gradient(145deg, rgba(0, 192, 255, 0.22), rgba(0, 140, 200, 0.15));
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+    .about-section {
+        margin: 3.5rem 0;
+    }
+    .invitation-section {
+        margin: 4.5rem 0 3rem;
+        padding: 2.5rem 1.2rem;
+    }
+}
