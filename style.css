@@ -1,0 +1,488 @@
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
+            overflow: auto;
+            font-family: "Megrim", system-ui;
+            color: white;
+        }
+
+        
+
+/* Real night sky feeling layers */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* Layer 1 - distant faint stars (very large → no visible repeat) */
+body::before {
+    background: 
+        radial-gradient(white 1px, transparent 1.5px),
+        radial-gradient(#f0f8ff 0.8px, transparent 1.2px);
+    background-size: 380px 380px, 520px 520px;
+    opacity: 0.06;
+    animation: 
+        drift-slow 600s linear infinite,
+        twinkle-gentle 28s ease-in-out infinite alternate;
+}
+
+/* Layer 2 - slightly brighter, medium distance stars */
+body::after {
+    background: 
+        radial-gradient(#ffffff 1.1px, transparent 1.6px),
+        radial-gradient(#e0f0ff 0.9px, transparent 1.4px);
+    background-size: 210px 210px, 340px 340px;
+    opacity: 0.10;
+    animation: 
+        drift-medium 340s linear infinite reverse,
+        twinkle-medium 18s ease-in-out infinite alternate;
+}
+
+/* Optional Layer 3 - few brightest stars (very sparse) */
+.stars-bright {
+    position: fixed;
+    inset: 0;
+    background: 
+        radial-gradient(white 1.5px, transparent 2px);
+    background-size: 900px 900px;
+    opacity: 0.07;
+    animation: 
+        drift-very-slow 900s linear infinite,
+        twinkle-bright 12s ease-in-out infinite;
+}
+
+@keyframes drift-slow       { 0% { background-position: 0 0, 80px 80px; } 100% { background-position: 1200px 1200px, 1280px 1280px; } }
+@keyframes drift-medium     { 0% { background-position: 0 0, 60px 60px; } 100% { background-position: 1800px 1800px, 1860px 1860px; } }
+@keyframes drift-very-slow  { 0% { background-position: 0 0; }           100% { background-position: 800px 800px; } }
+
+@keyframes twinkle-gentle   { 0%,100% { opacity: 0.06; } 50% { opacity: 0.11; } }
+@keyframes twinkle-medium   { 0%,100% { opacity: 0.10; } 50% { opacity: 0.17; } }
+@keyframes twinkle-bright   { 0%,100% { opacity: 0.05; } 40%,60% { opacity: 0.14; } }
+
+
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: transparent;
+            z-index: 10;
+            box-sizing: border-box;
+        }
+
+        .title {
+    font-size: clamp(1.5em, 5vw, 3.5em);
+    font-weight: 700;
+    font-family: "Megrim", system-ui;
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 183, 235, 0.8), 
+                 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: glowPulse 4s linear infinite;
+}
+
+@keyframes glowPulse {
+    0% {
+        text-shadow: 2px 2px 5px rgba(0, 183, 235, 0.8), 
+                     2px 2px 10px rgba(255, 255, 255, 0.5);
+    }
+    25% {
+        text-shadow: -2px 2px 5px rgba(0, 183, 235, 0.8), 
+                     -2px 2px 10px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: -2px -2px 5px rgba(0, 183, 235, 0.8), 
+                     -2px -2px 10px rgba(255, 255, 255, 0.5);
+    }
+    75% {
+        text-shadow: 2px -2px 5px rgba(0, 183, 235, 0.8), 
+                     2px -2px 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        text-shadow: 2px 2px 5px rgba(0, 183, 235, 0.8), 
+                     2px 2px 10px rgba(255, 255, 255, 0.5);
+    }
+}
+        .links {
+            display: flex;
+            gap: clamp(10px, 3vw, 40px);
+        }
+
+        .links a {
+            color: white;
+            text-decoration: none;
+            font-size: clamp(1em, 3vw, 1.2em);
+            transition: opacity 0.3s ease;
+        }
+
+        .links a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            position: relative;
+            width: clamp(150px, 50vw, 300px);
+            height: clamp(150px, 50vw, 300px);
+            margin-top: clamp(120px, 30vh, 350px);
+            margin-bottom: 50px;
+        }
+
+        .ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: transparent;
+            box-shadow: 0 0 15px rgba(0, 183, 235, 0.8), 
+                        0 0 30px rgba(255, 255, 255, 0.5);
+            z-index: 1;
+        }
+
+        .ring::before {
+            content: '';
+            position: absolute;
+            inset: -11px;
+            background: conic-gradient(#00b7eb, #ffffff, #00b7eb);
+            border-radius: 50%;
+            animation: rotateGradient 4s linear infinite;
+            z-index: -2;
+        }
+
+        .ring::after {
+            content: '';
+            position: absolute;
+            inset: 11px;
+            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .satellite {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: clamp(50px, 15vw, 100px);
+            height: clamp(50px, 15vw, 100px);
+            margin: calc(-1 * clamp(50px, 15vw, 100px) / 2);
+            z-index: 0;
+        }
+
+        .satellite-content {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: transparent;
+            box-shadow: 0 0 5px rgba(0, 183, 235, 0.8), 
+                        0 0 10px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .satellite:hover .satellite-content {
+            transform: scale(1.2);
+        }
+
+        .satellite-content::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: conic-gradient(#00b7eb, #ffffff, #00b7eb);
+            border-radius: 50%;
+            animation: rotateGradient 4s linear infinite;
+            z-index: -2;
+        }
+
+        .satellite-content::after {
+            content: '';
+            position: absolute;
+            inset: 4px;
+            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .satellite-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: clamp(10px, 3vw, 14px);
+            font-weight: bold;
+            text-align: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: clamp(10px, 3vw, 16px);
+            font-weight: 700;
+            text-align: center;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .center-text.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        
+
+        /* =============================================
+   CONTENT SECTION ONLY — for text-heavy pages
+   (add this at the bottom of your style.css)
+============================================= */
+
+main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+   margin-top: clamp(120px, 22vh, 180px);
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 880px;               /* comfortable reading width */
+    background: rgba(10, 10, 35, 0.65);   /* semi-transparent dark blue-black */
+    backdrop-filter: blur(8px);           /* beautiful glass effect */
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 183, 235, 0.18);
+    box-shadow: 
+        0 0 25px rgba(0, 183, 235, 0.15),
+        inset 0 0 20px rgba(0, 183, 235, 0.08);
+    padding: 3rem 2.5rem;
+    color: #f0f8ff;                 /* very soft off-white for readability */
+}
+
+.content-wrapper h1,
+.content-wrapper h2,
+.content-wrapper h3 {
+    font-family: "Megrim", system-ui;
+    color: #00e0ff;
+    text-shadow: 0 0 8px rgba(0, 224, 255, 0.6);
+    margin: 2rem 0 1.2rem;
+}
+
+.content-wrapper h1 {
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    text-align: center;
+}
+
+.content-wrapper h2 {
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+}
+
+.content-wrapper h3 {
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+}
+
+.content-wrapper p {
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.22rem);
+    line-height: 1.72;
+    margin-bottom: 1.6rem;
+    color: #e0f0ff;
+}
+
+.content-wrapper strong {
+    color: #40e0ff;
+    font-weight: 600;
+}
+
+.content-wrapper em {
+    color: #a5d8ff;
+    font-style: italic;
+}
+
+/* Simple decorative underline for main headings */
+.content-wrapper h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #00b7eb, transparent);
+    margin: 0.8rem auto 0;
+    border-radius: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    main {
+        padding: 30px 15px;
+        margin-top: clamp(320px, 50vh, 480px);
+    }
+    
+    .content-wrapper {
+        padding: 2.2rem 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-wrapper {
+        padding: 1.8rem 1.4rem;
+    }
+}
+
+        footer {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: clamp(10px, 2vw, 14px);
+            background: transparent;
+            box-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
+            margin-top: auto;
+        }
+
+        @keyframes rotateGradient {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+            .links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin-top: clamp(100px, 25vh, 200px);
+            }
+            .ring::before {
+                inset: -8px;
+            }
+            .ring::after {
+                inset: 8px;
+            }
+            .satellite-content::before {
+                inset: -3px;
+            }
+            .satellite-content::after {
+                inset: 3px;
+            }
+        }
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.92);
+    color: #e0ffff;                    /* soft cyan-white for ethereal feel */
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(12px, 3.5vw, 18px);
+    font-weight: 700;
+    text-align: center;
+    z-index: 3;                        /* above the mist */
+    opacity: 0;
+    pointer-events: none;
+    
+    /* Misty starting state */
+    filter: blur(10px);
+    text-shadow: 0 0 15px rgba(0, 230, 255, 0.6);
+    
+    transition: 
+        opacity 1.6s ease-out,
+        transform 1.8s ease-out,
+        filter 1.8s ease-out;
+}
+
+.center-text.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);                   /* sharpens from mist */
+}
+
+/* Misty nebula layer behind the text — creates the fog effect */
+.center-text::before {
+    content: '';
+    position: absolute;
+    inset: -60px;                      /* larger area around text */
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 220, 255, 0.25) 0%,
+        rgba(0, 150, 255, 0.12) 40%,
+        rgba(0, 100, 255, 0.04) 70%,
+        transparent 100%
+    );
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: mistySwirl 14s ease-in-out infinite alternate;
+}
+
+@keyframes mistySwirl {
+    0%   { 
+        transform: scale(1.0) translate(0, 0) rotate(0deg); 
+        opacity: 0.65; 
+    }
+    100% { 
+        transform: scale(1.3) translate(12px, -10px) rotate(15deg); 
+        opacity: 0.95; 
+    }
+}
+
+/* Page-to-page misty transition overlay */
+.mist-transition {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 220, 255, 0.38) 0%,
+        rgba(0, 150, 255, 0.20) 45%,
+        rgba(0, 100, 255, 0.08) 75%,
+        transparent 100%
+    );
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 1.6s ease-out;
+}
+
+.mist-transition.active {
+    opacity: 1;
+}
