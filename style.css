@@ -269,18 +269,29 @@ textarea             { resize: vertical; min-height: 140px; }
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
-    main { padding: 30px 15px; margin-top: clamp(320px, 50vh, 480px); }
-    .content-wrapper { padding: 2.2rem 1.8rem; }
-    .about-section   { margin: 3.5rem 0; }
-    .invitation-section { margin: 4.5rem 0 3rem; padding: 2.5rem 1.2rem; }
-    .form-row        { flex-direction: column; gap: 1.2rem; }
+    main {
+        padding: 10px 20px;
+        margin-top: 0;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: clamp(200px, 70vw, 280px);
+        height: clamp(200px, 70vw, 280px);
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 480px) {
-    .container { margin-top: clamp(100px, 25vh, 200px); }
     .ring::before { inset: -8px; }
     .ring::after  { inset:  8px; }
     .satellite-content::before { inset: -3px; }
     .satellite-content::after  { inset:  3px; }
-    .content-wrapper { padding: 1.8rem 1.4rem; }
+
+    .container {
+        width: clamp(180px, 75vw, 240px);
+        height: clamp(180px, 75vw, 240px);
+    }
 }
