@@ -37,7 +37,7 @@ body {
     align-items: center;
     padding: 20px;
     background: transparent;
-    z-index: 10;
+    z-index: 100;
     box-sizing: border-box;
 }
 
@@ -58,9 +58,11 @@ body {
     100% { text-shadow:  2px  2px 5px rgba(0,183,235,.8),  2px  2px 10px rgba(255,255,255,.5); }
 }
 
+/* ── Desktop nav links ──────────────────────────────────────── */
 .links {
     display: flex;
     gap: clamp(10px, 3vw, 40px);
+    transition: opacity 0.4s ease;
 }
 
 .links a {
@@ -73,7 +75,76 @@ body {
 
 .links a:hover { opacity: 0.7; }
 
-/* ── Glow button (used on multiple pages) ───────────────────── */
+.links.nav-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ── Burger button — hidden on desktop ──────────────────────── */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101;
+}
+
+.burger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Burger open state — animates to X */
+.burger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+/* ── Mobile dropdown menu ───────────────────────────────────── */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(5, 5, 25, 0.97);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.mobile-menu a {
+    font-family: "Megrim", system-ui;
+    font-size: clamp(2rem, 8vw, 3rem);
+    color: #00e0ff;
+    text-decoration: none;
+    letter-spacing: 4px;
+    text-shadow: 0 0 20px rgba(0,224,255,0.4);
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu a:hover { opacity: 0.7; }
+
+/* ── Glow button ────────────────────────────────────────────── */
 .glow-button {
     display: inline-block;
     padding: 1.2rem 3rem;
@@ -132,25 +203,15 @@ footer {
         transparent 100%);
 }
 
-/* ── Shared responsive ──────────────────────────────────────── */
+/* ── Desktop responsive ─────────────────────────────────────── */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
+        padding: 14px 20px;
     }
-    .links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-/* ── Nav links scroll fade ───────────────────────────────────── */
-.links {
-    transition: opacity 0.4s ease;
-}
-
-.links.nav-hidden {
-    opacity: 0;
-    pointer-events: none;  /* prevent clicking invisible links */
+    /* Hide desktop links on mobile */
+    .links { display: none; }
+    /* Show burger on mobile */
+    .burger { display: flex; }
+    /* Show mobile menu when open */
+    .mobile-menu { display: flex; }
 }
