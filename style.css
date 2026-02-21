@@ -268,7 +268,7 @@ textarea             { resize: vertical; min-height: 140px; }
 .submit-btn:hover .btn-glow { opacity: 1; }
 
 /* ── Responsive ─────────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (pointer: coarse) {
     main {
         padding: 10px 20px;
         margin-top: 0;
@@ -278,17 +278,14 @@ textarea             { resize: vertical; min-height: 140px; }
     }
 
     .container {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-}
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
     }
 
-    /* smaller central ring on mobile */
-  .ring::before { inset: -6px; }
-.ring::after  { inset:  6px; }
+    .ring::before { inset: -6px; }
+    .ring::after  { inset:  6px; }
 
-    /* bigger satellites on mobile */
     .satellite {
         width: 70px;
         height: 70px;
@@ -303,10 +300,10 @@ textarea             { resize: vertical; min-height: 140px; }
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) and (pointer: coarse) {
     .container {
         width: 100px;
-    height: 100px;
+        height: 100px;
     }
 
     .satellite {
