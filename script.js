@@ -14,7 +14,7 @@
     const STAR_COUNT = 100;
     const SPEED = 0.012;
     let stars = [], W, H;
-    let starRafId = null;   // single reference — never starts twice
+    let starRafId = null;
 
     function resizeCanvas() {
         W = canvas.width  = window.innerWidth;
@@ -49,7 +49,7 @@
     }
 
     function startStars() {
-        if (starRafId !== null) return;   // already running — do nothing
+        if (starRafId !== null) return;
         starRafId = requestAnimationFrame(drawStars);
     }
 
@@ -72,7 +72,7 @@
     let currentSpeed = BASE_SPEED;
     let hoverTimeout = null;
     let lastTime     = 0;
-    let orbitRafId   = null;   // single reference — never starts twice
+    let orbitRafId   = null;
 
     const wordToPhrase = {
         'Energy':     'Boost Your Drive',
@@ -88,7 +88,10 @@
         'Challenges': 'Lessons from conflict'
     };
 
-  let radius = window.innerWidth <= 480 ? 130 : window.innerWidth <= 768 ? 150 : 250;
+    let radius = window.innerWidth <= 480 ? 130 : window.innerWidth <= 768 ? 150 : 250;
+
+    // Detect touch device — disables hover text on mobile
+    const isTouch = window.matchMedia('(hover: none)').matches;
 
     if (hasSats) {
         satellites.forEach(sat => {
@@ -98,7 +101,7 @@
 
     function animateOrbit(timestamp) {
         if (lastTime === 0) lastTime = timestamp;
-        const delta = Math.min((timestamp - lastTime) / 1000, 0.1); // cap delta
+        const delta = Math.min((timestamp - lastTime) / 1000, 0.1);
         lastTime = timestamp;
 
         satellites.forEach(sat => {
@@ -113,7 +116,7 @@
 
     function startOrbit() {
         if (!hasSats) return;
-        if (orbitRafId !== null) return;  // already running — do nothing
+        if (orbitRafId !== null) return;
         lastTime = 0;
         orbitRafId = requestAnimationFrame(animateOrbit);
     }
@@ -139,7 +142,6 @@
     // ── Resize ───────────────────────────────────────────────────
     let resizeTimer = null;
     window.addEventListener('resize', () => {
-        // Debounce resize — don't reinit stars on every pixel
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             resizeCanvas();
@@ -152,7 +154,7 @@
     function resetMist() {
         if (!centerText) return;
         centerText.style.transition = 'none';
-        centerText.offsetHeight; // force reflow
+        centerText.offsetHeight;
         centerText.style.transition = '';
     }
 
@@ -161,45 +163,36 @@
         satellites.forEach(sat => {
             const label = sat.querySelector('.satellite-text');
 
-            sat.addEventListener('mouseenter', () => {
-                clearTimeout(hoverTimeout);
-                currentSpeed = SLOW_SPEED;
-                centerText.textContent = wordToPhrase[label?.textContent] || '';
-                resetMist();
-                centerText.classList.add('show');
-                hoverTimeout = setTimeout(() => { currentSpeed = VSLOW_SPEED; }, 2000);
-            });
+            // Mouse hover — desktop only, skipped on touch devices
+            if (!isTouch) {
+                sat.addEventListener('mouseenter', () => {
+                    clearTimeout(hoverTimeout);
+                    currentSpeed = SLOW_SPEED;
+                    centerText.textContent = wordToPhrase[label?.textContent] || '';
+                    resetMist();
+                    centerText.classList.add('show');
+                    hoverTimeout = setTimeout(() => { currentSpeed = VSLOW_SPEED; }, 2000);
+                });
 
-            sat.addEventListener('mouseleave', () => {
-                clearTimeout(hoverTimeout);
-                currentSpeed = BASE_SPEED;
-                centerText.classList.remove('show');
-                centerText.textContent = '';
-                resetMist();
-            });
+                sat.addEventListener('mouseleave', () => {
+                    clearTimeout(hoverTimeout);
+                    currentSpeed = BASE_SPEED;
+                    centerText.classList.remove('show');
+                    centerText.textContent = '';
+                    resetMist();
+                });
 
-            sat.addEventListener('click', () => {
-                if (sat.dataset.href) window.location.href = sat.dataset.href;
-            });
+                sat.addEventListener('click', () => {
+                    if (sat.dataset.href) window.location.href = sat.dataset.href;
+                });
+            }
 
+            // Touch — navigate directly, no center text
             sat.addEventListener('touchstart', (e) => {
                 e.preventDefault();
-                clearTimeout(hoverTimeout);
-                currentSpeed = SLOW_SPEED;
-                centerText.textContent = wordToPhrase[label?.textContent] || '';
-                resetMist();
-                centerText.classList.add('show');
-                hoverTimeout = setTimeout(() => { currentSpeed = VSLOW_SPEED; }, 2000);
+                if (sat.dataset.href) window.location.href = sat.dataset.href;
             }, { passive: false });
 
-            sat.addEventListener('touchend', () => {
-                clearTimeout(hoverTimeout);
-                currentSpeed = BASE_SPEED;
-                centerText.classList.remove('show');
-                centerText.textContent = '';
-                resetMist();
-                if (sat.dataset.href) window.location.href = sat.dataset.href;
-            });
         });
     }
 
