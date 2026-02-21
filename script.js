@@ -223,3 +223,26 @@
     startOrbit();
 
 })();
+
+// Injected separately — burger menu (runs on index.html)
+(function () {
+    const burger     = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (!burger || !mobileMenu) return;
+
+    burger.addEventListener('click', () => {
+        const isOpen = burger.classList.toggle('open');
+        mobileMenu.classList.toggle('open', isOpen);
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close menu when a link is tapped
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            burger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+})();
