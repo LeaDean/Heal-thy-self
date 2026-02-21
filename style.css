@@ -315,4 +315,11 @@ textarea             { resize: vertical; min-height: 140px; }
     .satellite-text {
         font-size: 9px;
     }
+   @media (max-width: 768px) and (pointer: coarse) {
+    /* existing rules... */
+
+    .ring {
+        box-shadow: 0 0 10px rgba(0,183,235,0.6);
+    }
+}
 }
