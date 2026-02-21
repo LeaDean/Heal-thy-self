@@ -3,113 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{Subject} - Healthy Self</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
-            font-family: 'Roboto', sans-serif;
-            color: white;
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: transparent;
-            z-index: 10;
-            box-sizing: border-box;
-        }
-
-        .title {
-            font-size: clamp(2em, 5vw, 3.5em);
-            font-weight: 700;
-        }
-
-        .links {
-            display: flex;
-            gap: clamp(15px, 3vw, 30px);
-        }
-
-        .links a {
-            color: white;
-            text-decoration: none;
-            font-size: clamp(1.2em, 3vw, 1.2em);
-            transition: opacity 0.3s ease;
-        }
-
-        .links a:hover {
-            opacity: 0.8;
-        }
-
-        .content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .content-text {
-            font-size: clamp(2em, 5vw, 4em);
-            font-weight: 700;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-        }
-
-        footer {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: clamp(12px, 2vw, 14px);
-            background: transparent;
-            box-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-            margin-top: auto;
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Strength — Heal-thy-self</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="content.css">
 </head>
 <body>
+    <canvas id="starCanvas"></canvas>
     <nav class="navbar">
-        <div class="title">Healthy Self</div>
+        <a href="index.html" class="title">Heal-thy-self</a>
         <div class="links">
-            <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-            <a href="index.html">Home</a>
+     <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
-    <div class="content">
-        <div class="content-text">{Subject}</div>
-    </div>
-    <footer>
-        &copy; 2025 Healthy Self. All rights reserved.
-    </footer>
+    <a href="index.html" class="back-btn" aria-label="Back to home">Home</a>
+    <main>
+        <article class="content-wrapper">
+            <header class="topic-hero">
+                <p class="topic-label">Heal-thy-self &mdash; Impeccability</p>
+                <h1 class="topic-title">Strength</h1>
+                <p class="topic-tagline">True strength is not about never falling. It is about bringing full honesty and full effort to every moment you have.</p>
+            </header>
+            <blockquote class="intro-quote">&#8220;To act to the very best of your ability, with what you know, in the moment you are in — this is the only standard worth holding yourself to.&#8221;</blockquote>
+            <h2>What Strength Actually Means</h2>
+            <p>Real strength is not the absence of weakness or failure. It is the commitment to bring your full effort and full honesty to whatever you are doing, right now, with what you currently know and have available to you. That is it. No more is asked. No less is sufficient.</p>
+            <p>This definition is both more demanding and more forgiving than perfectionism. More demanding, because it requires complete presence — no half-measures, no going through the motions, no holding back while waiting for better conditions. More forgiving, because it removes the tyranny of outcomes. You cannot always control results. You can always control the quality of your response. Someone who acts with full honesty and effort and still fails has lost the result — but has not lost their integrity. That distinction matters enormously over time.</p>
+            <h2>The Cost of Living Below Your Own Standard</h2>
+            <p>Most of us carry a quiet awareness of where we are <em>not</em> being fully honest with ourselves — where we are cutting corners, avoiding conversations we know need to happen, or staying in situations we have genuinely outgrown. This costs more than we realise, not as punishment, but as simple cause and effect. The inner life reflects the quality of our actions. Living consistently below your own standard is exhausting in a way that is hard to name but impossible to ignore once you have seen it clearly.</p>
+            <h2>Practical Steps</h2>
+            <ul class="tips-list">
+                <li>Identify one area where you know, honestly, that you are not giving your full effort or your full truth. You do not need to fix it today — but name it clearly to yourself.</li>
+                <li>Before any significant action, ask: am I doing this to the best of my current ability? Not someone else&#8217;s ability — yours, today, with what you actually have.</li>
+                <li>When you make a mistake, resist the urge to either catastrophise or dismiss it. Ask simply: what did I know then, and what do I know now? Then move forward without dragging it.</li>
+                <li>Notice where you are waiting for ideal conditions before acting well. Strength is built in the conditions that actually exist, not the ones we are waiting for.</li>
+                <li>One honest action today — however small — builds the capacity for the next. Start with whatever is directly in front of you.</li>
+            </ul>
+            <h2>A Thought to Carry</h2>
+            <p>Strength is not the absence of limitation. It is the commitment to act fully and honestly within whatever limitations you currently have. That commitment, held consistently over time, becomes something that does not break easily.</p>
+            <div class="cta-section">
+                <p>Ready to explore another aspect of your wellbeing?</p>
+                <a href="index.html" class="glow-button">Return to the Orbit</a>
+            </div>
+        </article>
+    </main>
+    <footer>&copy; 2025 Healthy Self. All rights reserved.</footer>
+    <div class="mist-transition" id="mistOverlay"></div>
+    <script src="content-script.js"></script>
 </body>
 </html>
