@@ -3,113 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{Subject} - Healthy Self</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
-            font-family: 'Roboto', sans-serif;
-            color: white;
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: transparent;
-            z-index: 10;
-            box-sizing: border-box;
-        }
-
-        .title {
-            font-size: clamp(2em, 5vw, 3.5em);
-            font-weight: 700;
-        }
-
-        .links {
-            display: flex;
-            gap: clamp(15px, 3vw, 30px);
-        }
-
-        .links a {
-            color: white;
-            text-decoration: none;
-            font-size: clamp(1.2em, 3vw, 1.2em);
-            transition: opacity 0.3s ease;
-        }
-
-        .links a:hover {
-            opacity: 0.8;
-        }
-
-        .content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .content-text {
-            font-size: clamp(2em, 5vw, 4em);
-            font-weight: 700;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-        }
-
-        footer {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: clamp(12px, 2vw, 14px);
-            background: transparent;
-            box-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-            margin-top: auto;
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Vitality — Heal-thy-self</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="content.css">
 </head>
 <body>
+    <canvas id="starCanvas"></canvas>
     <nav class="navbar">
-        <div class="title">Healthy Self</div>
+        <a href="index.html" class="title">Heal-thy-self</a>
         <div class="links">
-            <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-            <a href="index.html">Home</a>
+   <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
-    <div class="content">
-        <div class="content-text">{Subject}</div>
-    </div>
-    <footer>
-        &copy; 2025 Healthy Self. All rights reserved.
-    </footer>
+    <a href="index.html" class="back-btn" aria-label="Back to home">Home</a>
+    <main>
+        <article class="content-wrapper">
+            <header class="topic-hero">
+                <p class="topic-label">Heal-thy-self &mdash; Embracing All of Life</p>
+                <h1 class="topic-title">Vitality</h1>
+                <p class="topic-tagline">We try to keep the difficult parts of life at arm&#8217;s length. This, more than almost anything else, is what drains us.</p>
+            </header>
+            <blockquote class="intro-quote">&#8220;The energy we spend avoiding an experience almost always exceeds the energy the experience itself would have cost us.&#8221;</blockquote>
+            <h2>The Trap of Selective Living</h2>
+            <p>We are remarkably creative in the ways we avoid full engagement with our lives — busyness, distraction, overthinking, numbing, staying permanently on the surface of things. This avoidance is not laziness. It is usually a form of self-protection, developed at a time when it genuinely served us. The problem is that protection has a cost: the more of life we keep at arm&#8217;s length, the smaller our actual experience becomes — and the more depleted we feel, paradoxically, despite &#8216;doing less&#8217;.</p>
+            <p>The real drain is not difficulty. It is <strong>resistance to difficulty</strong>. Grief fully felt moves through and passes. Grief avoided can quietly run a life for decades. Difficulty engaged with honestly becomes, over time, a form of wisdom. The same difficulty fled from becomes a pattern that repeats itself in different clothing until it is finally faced.</p>
+            <h2>What Full Engagement Actually Looks Like</h2>
+            <p>Embracing all of life is not a call to recklessness or forced positivity. It is not about pretending difficulty is not difficult. It is about being genuinely present for both the beautiful and the hard — allowing yourself to feel joy without immediately bracing for its loss, and allowing yourself to feel discomfort without immediately reaching for the nearest distraction. It is, in practice, an act of quiet courage: the willingness to be <em>moved</em> by your own life, rather than merely managing it from a careful distance.</p>
+            <h2>Practical Steps</h2>
+            <ul class="tips-list">
+                <li>Identify one emotion you consistently avoid feeling. Not to wallow in it — but to allow yourself to sit with it for five minutes without reaching for a distraction. This is where vitality is often quietly waiting to be reclaimed.</li>
+                <li>Learn the difference between rest and avoidance. Rest replenishes. Avoidance depletes — even when it looks identical from the outside.</li>
+                <li>The things that genuinely move you — beauty, grief, awe, love, laughter — are not weaknesses or indulgences. They are signs of being alive. Protect them.</li>
+                <li>Ask yourself: what part of my life am I currently managing from a distance rather than actually living? What might change if you moved one step closer to it?</li>
+                <li>Choose one thing today that you have been only half-present for. Give it your full attention, even briefly. Notice what sense of aliveness returns.</li>
+            </ul>
+            <h2>A Thought to Carry</h2>
+            <p>Vitality does not come from protecting yourself from life. It comes from meeting life with increasing openness — and discovering, gradually, that you are far more capable of that meeting than you had allowed yourself to believe.</p>
+            <div class="cta-section">
+                <p>Ready to explore another aspect of your wellbeing?</p>
+                <a href="index.html" class="glow-button">Return to the Orbit</a>
+            </div>
+        </article>
+    </main>
+    <footer>&copy; 2025 Healthy Self. All rights reserved.</footer>
+    <div class="mist-transition" id="mistOverlay"></div>
+    <script src="content-script.js"></script>
 </body>
 </html>
