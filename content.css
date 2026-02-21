@@ -1,5 +1,5 @@
 /* ============================================================
-   content.css  —  topic content pages only (energy.html etc.)
+   content.css  —  content pages only
    Loads AFTER global.css
    Heal-thy-self
    ============================================================ */
@@ -16,7 +16,7 @@ main {
     margin-top: clamp(90px, 14vh, 130px);
 }
 
-/* ── Back button (vertical, desktop only) ───────────────────── */
+/* ── Back button ────────────────────────────────────────────── */
 .back-btn {
     position: fixed;
     top: 50%;
@@ -172,11 +172,11 @@ main {
     border-radius: 10px;
     border-left: 2px solid rgba(0, 183, 235, 0.3);
     line-height: 1.6;
-    transition: background 0.3s ease, border-color 0.3s ease;
+    transition: border-color 0.3s ease, opacity 0.3s ease;
 }
 
 .tips-list li:hover {
-    background: rgba(0, 183, 235, 0.10);
+    opacity: 0.85;
     border-color: rgba(0, 183, 235, 0.6);
 }
 
@@ -206,19 +206,7 @@ main {
     font-weight: 300;
 }
 
-/* ── Responsive ─────────────────────────────────────────────── */
-@media (max-width: 768px) {
-    .back-btn { display: none; }
-    .content-wrapper { padding: 2rem 1.4rem; }
-    main { margin-top: clamp(100px, 18vh, 150px); }
-}
-
-@media (max-width: 480px) {
-    .content-wrapper { padding: 1.6rem 1.1rem; }
-}
-
-/* ── About page specific ────────────────────────────────────── */
-
+/* ── About page ─────────────────────────────────────────────── */
 .about-hero {
     text-align: center;
     padding: 1rem 0 3rem;
@@ -371,225 +359,6 @@ main {
     opacity: 0.85;
 }
 
-/* ============================================================
-   content.css  —  topic content pages only (energy.html etc.)
-   Loads AFTER global.css
-   Heal-thy-self
-   ============================================================ */
-
-/* ── Main layout ────────────────────────────────────────────── */
-main {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px 60px;
-    margin-top: clamp(90px, 14vh, 130px);
-}
-
-/* ── Back button (vertical, desktop only) ───────────────────── */
-.back-btn {
-    position: fixed;
-    top: 50%;
-    left: clamp(10px, 2vw, 28px);
-    transform: translateY(-50%);
-    z-index: 10;
-    color: rgba(160, 220, 255, 0.75);
-    text-decoration: none;
-    font-family: "Megrim", system-ui;
-    font-size: clamp(0.85rem, 2vw, 1.05rem);
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    letter-spacing: 2px;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.back-btn::before {
-    content: '↑';
-    display: block;
-    writing-mode: horizontal-tb;
-    font-size: 1.4em;
-    text-align: center;
-    margin-bottom: 6px;
-}
-
-.back-btn:hover {
-    color: #00e0ff;
-    text-shadow: 0 0 12px rgba(0, 224, 255, 0.7);
-}
-
-/* ── Content wrapper ────────────────────────────────────────── */
-.content-wrapper {
-    width: 100%;
-    max-width: 860px;
-    background: rgba(10, 10, 35, 0.75);
-    border-radius: 16px;
-    border: 1px solid rgba(0, 183, 235, 0.18);
-    box-shadow:
-        0 0 25px rgba(0, 183, 235, 0.15),
-        inset 0 0 20px rgba(0, 183, 235, 0.08);
-    padding: 3rem 2.5rem;
-    color: #e0f0ff;
-    animation: fadeUp 0.9s ease both;
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── Topic hero ─────────────────────────────────────────────── */
-.topic-hero {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(0, 183, 235, 0.15);
-}
-
-.topic-label {
-    font-family: "Megrim", system-ui;
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: rgba(0, 183, 235, 0.6);
-    margin-bottom: 1rem;
-}
-
-.topic-title {
-    font-family: "Megrim", system-ui;
-    font-size: clamp(2.8rem, 8vw, 5rem);
-    color: #00e0ff;
-    text-shadow: 0 0 20px rgba(0, 224, 255, 0.5);
-    line-height: 1.1;
-    margin-bottom: 1.4rem;
-}
-
-.topic-tagline {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    color: #b0d8ff;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-    line-height: 1.6;
-    max-width: 620px;
-    margin: 0 auto;
-}
-
-/* ── Intro quote ────────────────────────────────────────────── */
-.intro-quote {
-    font-family: "Megrim", system-ui;
-    font-size: clamp(1.3rem, 3.5vw, 1.9rem);
-    color: #70d8ff;
-    text-align: center;
-    margin: 2.5rem 0 3rem;
-    padding: 1.5rem 1rem;
-    line-height: 1.55;
-    text-shadow: 0 0 14px rgba(112, 216, 255, 0.35);
-    list-style: none;
-}
-
-.intro-quote::before,
-.intro-quote::after {
-    content: '⟡';
-    display: block;
-    font-size: 1rem;
-    color: rgba(0, 183, 235, 0.4);
-    margin: 0.4rem 0;
-}
-
-/* ── Section headings ───────────────────────────────────────── */
-.content-wrapper h2 {
-    font-family: "Megrim", system-ui;
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    color: #00e0ff;
-    text-shadow: 0 0 8px rgba(0, 224, 255, 0.4);
-    margin: 2.8rem 0 1.2rem;
-}
-
-.content-wrapper h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(to right, #00b7eb, transparent);
-    margin: 0.7rem 0 0;
-    border-radius: 2px;
-}
-
-/* ── Body text ──────────────────────────────────────────────── */
-.content-wrapper p {
-    font-size: clamp(1rem, 2.5vw, 1.18rem);
-    line-height: 1.78;
-    margin-bottom: 1.5rem;
-    color: #ddeeff;
-}
-
-.content-wrapper strong { color: #40e0ff; font-weight: 600; }
-.content-wrapper em     { color: #a5d8ff; font-style: italic; }
-
-/* ── Tips list ──────────────────────────────────────────────── */
-.tips-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0 2rem;
-}
-
-.tips-list li {
-    font-size: clamp(1rem, 2.5vw, 1.15rem);
-    padding: 1rem 1rem 1rem 2.8rem;
-    margin-bottom: 0.9rem;
-    position: relative;
-    color: #d8f0ff;
-    background: rgba(0, 183, 235, 0.05);
-    border-radius: 10px;
-    border-left: 2px solid rgba(0, 183, 235, 0.3);
-    line-height: 1.6;
-    transition: background 0.3s ease, border-color 0.3s ease;
-}
-
-.tips-list li:hover {
-    background: rgba(0, 183, 235, 0.10);
-    border-color: rgba(0, 183, 235, 0.6);
-}
-
-.tips-list li::before {
-    content: "⟡";
-    position: absolute;
-    left: 0.8rem;
-    top: 1rem;
-    color: #00d4ff;
-    font-size: 1.1rem;
-}
-
-/* ── Closing CTA ────────────────────────────────────────────── */
-.cta-section {
-    text-align: center;
-    margin-top: 3.5rem;
-    padding: 2.5rem 1.5rem;
-    background: rgba(10, 20, 50, 0.4);
-    border-radius: 16px;
-    border: 1px solid rgba(0, 183, 235, 0.12);
-}
-
-.cta-section p {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    color: #c0e8ff;
-    margin-bottom: 1.8rem;
-    font-weight: 300;
-}
-
-/* ── Responsive ─────────────────────────────────────────────── */
-@media (max-width: 768px) {
-    .back-btn { display: none; }
-    .content-wrapper { padding: 2rem 1.4rem; }
-    main { margin-top: clamp(100px, 18vh, 150px); }
-}
-
-@media (max-width: 480px) {
-    .content-wrapper { padding: 1.6rem 1.1rem; }
-}
-
 /* ── Contact page ────────────────────────────────────────────── */
 .contact-grid {
     display: grid;
@@ -649,7 +418,6 @@ main {
 
 .contact-value a:hover { opacity: 0.7; }
 
-/* ── Contact form ────────────────────────────────────────────── */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -728,7 +496,14 @@ textarea {
 
 .submit-btn:hover .btn-glow { opacity: 1; }
 
-/* ── Contact responsive ─────────────────────────────────────── */
-@media (max-width: 600px) {
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .back-btn { display: none; }
+    .content-wrapper { padding: 2rem 1.4rem; }
+    main { margin-top: clamp(100px, 18vh, 150px); }
     .form-row { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+    .content-wrapper { padding: 1.6rem 1.1rem; }
 }
