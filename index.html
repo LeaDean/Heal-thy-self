@@ -16,53 +16,107 @@
 
     <nav class="navbar">
         <a href="index.html" class="title">Heal-thy-self</a>
+
+        <!-- Desktop nav links -->
         <div class="links">
             <a href="About.html">About</a>
             <a href="community.html">Community</a>
             <a href="contact.html">Contact</a>
         </div>
+
+        <!-- Mobile burger button -->
+        <button class="burger" id="burgerBtn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
+    <!-- Mobile dropdown menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="About.html">About</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
     <main>
-        <div class="container">
-            <div class="ring"></div>
-            <div class="center-text" id="centerText"></div>
+        <!-- ── Orbit section ─────────────────────────── -->
+        <section class="orbit-section">
+            <div class="container">
+                <div class="ring"></div>
+                <div class="center-text" id="centerText"></div>
 
-            <div class="satellite" data-angle-offset="0"        data-href="energy.html">
-                <div class="satellite-content"><span class="satellite-text">Energy</span></div>
+                <div class="satellite" data-angle-offset="0"        data-href="energy.html">
+                    <div class="satellite-content"><span class="satellite-text">Energy</span></div>
+                </div>
+                <div class="satellite" data-angle-offset="32.7272"  data-href="focus.html">
+                    <div class="satellite-content"><span class="satellite-text">Focus</span></div>
+                </div>
+                <div class="satellite" data-angle-offset="65.4544"  data-href="purpose.html">
+                    <div class="satellite-content"><span class="satellite-text">Purpose</span></div>
+                </div>
+                <div class="satellite" data-angle-offset="98.1816"  data-href="strength.html">
+                    <div class="satellite-content"><span class="satellite-text">Strength</span></div>
+                </div>
+                <div class="satellite" data-angle-offset="130.9088" data-href="peace.html">
+                    <div class="satellite-content"><span class="satellite-text">Peace</span></div>
+                </div>
+                <div class="satellite" data-angle-offset="163.6360" data-href="clarity.html">
+                    <div class="satellite-content"><span class="satellite-text">Clarity</span></div>
+                </div>
+                <div class="satellite" data-angle-offset="196.3632" data-href="harmony.html">
+                    <div class="satellite-content"><span class="satellite-text">Harmony</span></div>
+                </div>
+                <div class="satellite" data-angle-offset="229.0904" data-href="vitality.html">
+                    <div class="satellite-content"><span class="satellite-text">Vitality</span></div>
+                </div>
+                <div class="satellite" data-angle-offset="261.8176" data-href="joy.html">
+                    <div class="satellite-content"><span class="satellite-text">Joy</span></div>
+                </div>
+                <div class="satellite" data-angle-offset="294.5448" data-href="growth.html">
+                    <div class="satellite-content"><span class="satellite-text">Growth</span></div>
+                </div>
+                <div class="satellite" data-angle-offset="327.2720" data-href="Challenges.html">
+                    <div class="satellite-content"><span class="satellite-text">Challenges</span></div>
+                </div>
             </div>
-            <div class="satellite" data-angle-offset="32.7272"  data-href="focus.html">
-                <div class="satellite-content"><span class="satellite-text">Focus</span></div>
-            </div>
-            <div class="satellite" data-angle-offset="65.4544"  data-href="purpose.html">
-                <div class="satellite-content"><span class="satellite-text">Purpose</span></div>
-            </div>
-            <div class="satellite" data-angle-offset="98.1816"  data-href="strength.html">
-                <div class="satellite-content"><span class="satellite-text">Strength</span></div>
-            </div>
-            <div class="satellite" data-angle-offset="130.9088" data-href="peace.html">
-                <div class="satellite-content"><span class="satellite-text">Peace</span></div>
-            </div>
-            <div class="satellite" data-angle-offset="163.6360" data-href="clarity.html">
-                <div class="satellite-content"><span class="satellite-text">Clarity</span></div>
-            </div>
-            <div class="satellite" data-angle-offset="196.3632" data-href="harmony.html">
-                <div class="satellite-content"><span class="satellite-text">Harmony</span></div>
-            </div>
-            <div class="satellite" data-angle-offset="229.0904" data-href="vitality.html">
-                <div class="satellite-content"><span class="satellite-text">Vitality</span></div>
-            </div>
-            <div class="satellite" data-angle-offset="261.8176" data-href="joy.html">
-                <div class="satellite-content"><span class="satellite-text">Joy</span></div>
-            </div>
-            <div class="satellite" data-angle-offset="294.5448" data-href="growth.html">
-                <div class="satellite-content"><span class="satellite-text">Growth</span></div>
-            </div>
-            <div class="satellite" data-angle-offset="327.2720" data-href="Challenges.html">
-                <div class="satellite-content"><span class="satellite-text">Challenges</span></div>
-            </div>
+        </section>
 
-        </div>
+        <!-- ── About taster — mobile only ───────────── -->
+        <section class="mobile-taster" id="about-taster">
+            <div class="taster-content">
+                <p class="taster-label">About</p>
+                <h2>You Are the Teacher</h2>
+                <p>No one is coming to save you — and that is the most liberating thing you will ever understand. This site exists as a set of tools. What you do with them is entirely up to you.</p>
+                <a href="About.html" class="glow-button">Read More</a>
+            </div>
+        </section>
+
+        <!-- ── Community preview — mobile only ──────── -->
+        <section class="mobile-taster" id="community-taster">
+            <div class="taster-content">
+                <p class="taster-label">Community</p>
+                <h2>The Collective</h2>
+                <p>Art, music, writing, poetry and projects from people genuinely doing the work. A living gallery of what self-inquiry looks like in practice.</p>
+                <a href="community.html" class="glow-button">Explore</a>
+            </div>
+        </section>
+
+        <!-- ── Contact inline — mobile only ─────────── -->
+        <section class="mobile-taster mobile-contact" id="contact-taster">
+            <div class="taster-content">
+                <p class="taster-label">Get in Touch</p>
+                <h2>Contact</h2>
+                <p>Ready to begin? Reach out by email, phone, or book a free discovery call.</p>
+                <div class="mobile-contact-links">
+                    <a href="mailto:hello@heal-thy-self.co.uk">hello@heal-thy-self.co.uk</a>
+                    <a href="tel:+447123456789">+44 7123 456 789</a>
+                    <a href="https://calendly.com/yourname" target="_blank" rel="noopener">Book a free call →</a>
+                </div>
+                <a href="contact.html" class="glow-button">Full Contact Page</a>
+            </div>
+        </section>
+
     </main>
 
     <footer>&copy; 2025 Heal-thy-self. All rights reserved.</footer>
