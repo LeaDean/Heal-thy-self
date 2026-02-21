@@ -282,16 +282,75 @@ main {
 .contrib-card.hidden { display: none; }
 
 /* ── Responsive ─────────────────────────────────────────────── */
+
+/* Tablet */
 @media (max-width: 900px) {
     .card-hero, .card-large              { grid-column: span 12; }
     .card-medium, .card-standard,
     .card-tall, .card-wide               { grid-column: span 6;  }
 }
 
-@media (max-width: 600px) {
-    .newspaper-grid { grid-template-columns: 1fr; gap: 1.1rem; }
-    .card-hero, .card-large, .card-medium,
-    .card-standard, .card-tall, .card-wide { grid-column: span 1; min-height: unset; }
-    .card-image    { height: 140px !important; }
-    main           { margin-top: clamp(100px, 18vh, 140px); }
+/* Mobile — single column scroll */
+@media (max-width: 768px) and (pointer: coarse) {
+
+    main {
+        margin-top: 70px;
+        padding: 0 16px 60px;
+        align-items: center;
+    }
+
+    .page-header {
+        padding: 2rem 0 1.8rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .filter-bar {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.82rem;
+    }
+
+    .newspaper-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* All cards same width, no grid spans needed */
+    .card-hero,
+    .card-large,
+    .card-medium,
+    .card-standard,
+    .card-tall,
+    .card-wide {
+        width: 100%;
+        min-height: unset;
+    }
+
+    /* Consistent image height on mobile */
+    .card-hero .card-image,
+    .card-large .card-image,
+    .card-medium .card-image,
+    .card-standard .card-image,
+    .card-tall .card-image,
+    .card-wide .card-image {
+        height: 130px;
+    }
+
+    .card-body {
+        padding: 1.1rem 1.2rem 1.3rem;
+    }
+
+    .card-title {
+        font-size: 1.15rem;
+    }
+
+    /* Hide column rules on mobile */
+    .col-rule { display: none; }
 }
