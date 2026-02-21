@@ -70,7 +70,7 @@ main {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    overflow: hidden;          /* restores correct border thickness */
+    overflow: hidden;
     background: transparent;
     box-shadow: 0 0 5px rgba(0,183,235,0.8),
                 0 0 10px rgba(255,255,255,0.5);
@@ -148,7 +148,6 @@ main {
     filter: blur(0);
 }
 
-/* ── mistySwirl ONLY runs when .show is active ───────────────── */
 .center-text::before {
     content: '';
     position: absolute;
@@ -164,7 +163,6 @@ main {
     z-index: -1;
     pointer-events: none;
     opacity: 0;
-    /* NO animation here — only added when .show is present */
 }
 
 .center-text.show::before {
@@ -182,14 +180,6 @@ main {
     100% { transform: scale(1.3) translate(12px, -10px) rotate(15deg); opacity: 0.95; }
 }
 
-/* ── Responsive ──────────────────────────────────────────────── */
-@media (max-width: 480px) {
-    .ring::before { inset: -8px; }
-    .ring::after  { inset:  8px; }
-    .satellite-content::before { inset: -3px; }
-    .satellite-content::after  { inset:  3px; }
-}
-
 /* ── Mobile scroll sections — hidden on desktop ─────────────── */
 .orbit-section {
     display: flex;
@@ -199,10 +189,10 @@ main {
 }
 
 .mobile-taster {
-    display: none; /* hidden on desktop */
+    display: none;
 }
 
-/* ── Mobile taster sections ─────────────────────────────────── */
+/* ── Mobile styles ───────────────────────────────────────────── */
 @media (max-width: 768px) and (pointer: coarse) {
 
     main {
@@ -217,6 +207,19 @@ main {
         min-height: 100vh;
         padding-top: 70px;
     }
+
+    /* Central circle smaller on mobile */
+    .container {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+    }
+
+    .ring::before { inset: -6px; }
+    .ring::after  { inset:  6px; }
+
+    .satellite-content::before { inset: -3px; }
+    .satellite-content::after  { inset:  3px; }
 
     /* Show taster sections on mobile */
     .mobile-taster {
@@ -267,7 +270,6 @@ main {
         padding: 0.9rem 2.2rem;
     }
 
-    /* Contact inline links */
     .mobile-contact-links {
         display: flex;
         flex-direction: column;
