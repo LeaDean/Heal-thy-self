@@ -1,7 +1,6 @@
 /* ============================================================
    community.css  —  community page only
    Loads AFTER global.css
-   Heal-thy-self
    ============================================================ */
 
 /* ── Main layout ────────────────────────────────────────────── */
@@ -77,15 +76,15 @@ main {
     border: 1px solid rgba(0, 183, 235, 0.22);
     border-radius: 999px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    /* FIXED: was transition: all — now only safe properties */
+    transition: opacity 0.3s ease, border-color 0.3s ease;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
+    opacity: 1;
     color: #fff;
-    background: rgba(0, 183, 235, 0.15);
     border-color: rgba(0, 183, 235, 0.55);
-    box-shadow: 0 0 18px rgba(0, 183, 235, 0.2);
 }
 
 /* ── Newspaper grid ─────────────────────────────────────────── */
@@ -106,8 +105,9 @@ main {
     border-radius: 14px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-    animation: cardReveal 0.7s ease both;
+    /* FIXED: removed box-shadow from transition, removed cardReveal animation */
+    transition: transform 0.35s ease, border-color 0.35s ease, opacity 0.35s ease;
+    will-change: transform;
     display: flex;
     flex-direction: column;
 }
@@ -115,64 +115,18 @@ main {
 .contrib-card:hover {
     transform: translateY(-5px);
     border-color: rgba(0, 183, 235, 0.5);
-    box-shadow: 0 12px 40px rgba(0, 183, 235, 0.18),
-                inset 0 0 20px rgba(0, 183, 235, 0.05);
+    /* FIXED: no box-shadow change on hover */
 }
 
-@keyframes cardReveal {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
+/* REMOVED: cardReveal animation — was firing on 10 elements simultaneously */
 
-/* staggered reveal delays */
-.contrib-card:nth-child(1)  { animation-delay: 0.05s; }
-.contrib-card:nth-child(2)  { animation-delay: 0.10s; }
-.contrib-card:nth-child(3)  { animation-delay: 0.15s; }
-.contrib-card:nth-child(4)  { animation-delay: 0.20s; }
-.contrib-card:nth-child(5)  { animation-delay: 0.25s; }
-.contrib-card:nth-child(6)  { animation-delay: 0.30s; }
-.contrib-card:nth-child(7)  { animation-delay: 0.35s; }
-.contrib-card:nth-child(8)  { animation-delay: 0.40s; }
-.contrib-card:nth-child(9)  { animation-delay: 0.45s; }
-.contrib-card:nth-child(10) { animation-delay: 0.50s; }
-
-/* ── Grid placement — newspaper layout ──────────────────────── */
-
-/* Hero card — spans full width, tall */
-.card-hero {
-    grid-column: span 12;
-    min-height: 340px;
-}
-
-/* Large card — two thirds */
-.card-large {
-    grid-column: span 8;
-    min-height: 260px;
-}
-
-/* Medium card — half */
-.card-medium {
-    grid-column: span 6;
-    min-height: 220px;
-}
-
-/* Standard card — one third */
-.card-standard {
-    grid-column: span 4;
-    min-height: 200px;
-}
-
-/* Tall sidebar card */
-.card-tall {
-    grid-column: span 4;
-    min-height: 300px;
-}
-
-/* Wide shallow card */
-.card-wide {
-    grid-column: span 8;
-    min-height: 180px;
-}
+/* ── Grid placement ─────────────────────────────────────────── */
+.card-hero     { grid-column: span 12; min-height: 340px; }
+.card-large    { grid-column: span 8;  min-height: 260px; }
+.card-medium   { grid-column: span 6;  min-height: 220px; }
+.card-standard { grid-column: span 4;  min-height: 200px; }
+.card-tall     { grid-column: span 4;  min-height: 300px; }
+.card-wide     { grid-column: span 8;  min-height: 180px; }
 
 /* ── Card image area ─────────────────────────────────────────── */
 .card-image {
@@ -181,12 +135,12 @@ main {
     flex-shrink: 0;
 }
 
-.card-hero    .card-image { height: 200px; }
-.card-large   .card-image { height: 160px; }
-.card-medium  .card-image { height: 130px; }
+.card-hero     .card-image { height: 200px; }
+.card-large    .card-image { height: 160px; }
+.card-medium   .card-image { height: 130px; }
 .card-standard .card-image { height: 120px; }
-.card-tall    .card-image { height: 180px; }
-.card-wide    .card-image { height: 100px; }
+.card-tall     .card-image { height: 180px; }
+.card-wide     .card-image { height: 100px; }
 
 .card-image-placeholder {
     width: 100%;
@@ -199,22 +153,20 @@ main {
     transition: opacity 0.4s ease;
 }
 
-.contrib-card:hover .card-image-placeholder {
-    opacity: 0.8;
-}
+.contrib-card:hover .card-image-placeholder { opacity: 0.8; }
 
-/* category colour tints for image areas */
-.card-image.art      { background: linear-gradient(135deg, rgba(180, 60, 120, 0.35), rgba(10, 5, 30, 0.9)); }
-.card-image.music    { background: linear-gradient(135deg, rgba(60, 120, 200, 0.35), rgba(10, 5, 30, 0.9)); }
-.card-image.writing  { background: linear-gradient(135deg, rgba(60, 180, 140, 0.35), rgba(10, 5, 30, 0.9)); }
-.card-image.project  { background: linear-gradient(135deg, rgba(180, 140, 40, 0.35), rgba(10, 5, 30, 0.9)); }
-.card-image.poetry   { background: linear-gradient(135deg, rgba(140, 80, 200, 0.35), rgba(10, 5, 30, 0.9)); }
+/* category colour tints */
+.card-image.art     { background: linear-gradient(135deg, rgba(180,60,120,0.35),  rgba(10,5,30,0.9)); }
+.card-image.music   { background: linear-gradient(135deg, rgba(60,120,200,0.35),  rgba(10,5,30,0.9)); }
+.card-image.writing { background: linear-gradient(135deg, rgba(60,180,140,0.35),  rgba(10,5,30,0.9)); }
+.card-image.project { background: linear-gradient(135deg, rgba(180,140,40,0.35),  rgba(10,5,30,0.9)); }
+.card-image.poetry  { background: linear-gradient(135deg, rgba(140,80,200,0.35),  rgba(10,5,30,0.9)); }
 
 /* ── Card glow overlay ──────────────────────────────────────── */
 .card-glow {
     position: absolute;
     inset: -50%;
-    background: radial-gradient(circle at 30% 20%, rgba(0, 200, 255, 0.10), transparent 60%);
+    background: radial-gradient(circle at 30% 20%, rgba(0,200,255,0.10), transparent 60%);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -238,11 +190,11 @@ main {
     margin-bottom: 0.6rem;
 }
 
-.card-category.art     { color: rgba(220, 100, 160, 0.9); }
-.card-category.music   { color: rgba(100, 160, 240, 0.9); }
-.card-category.writing { color: rgba(80, 220, 170, 0.9); }
-.card-category.project { color: rgba(220, 180, 60, 0.9); }
-.card-category.poetry  { color: rgba(180, 120, 240, 0.9); }
+.card-category.art     { color: rgba(220,100,160,0.9); }
+.card-category.music   { color: rgba(100,160,240,0.9); }
+.card-category.writing { color: rgba(80,220,170,0.9);  }
+.card-category.project { color: rgba(220,180,60,0.9);  }
+.card-category.poetry  { color: rgba(180,120,240,0.9); }
 
 .card-title {
     font-family: "Megrim", system-ui;
@@ -267,8 +219,8 @@ main {
     overflow: hidden;
 }
 
-.card-hero .card-excerpt   { -webkit-line-clamp: 4; }
-.card-wide .card-excerpt   { -webkit-line-clamp: 2; }
+.card-hero .card-excerpt { -webkit-line-clamp: 4; }
+.card-wide .card-excerpt { -webkit-line-clamp: 2; }
 
 /* ── Card footer ─────────────────────────────────────────────── */
 .card-footer {
@@ -305,7 +257,6 @@ main {
     font-family: 'Roboto', sans-serif;
     font-size: 0.85rem;
     color: #70a8c8;
-    font-weight: 400;
 }
 
 .card-read-more {
@@ -317,45 +268,30 @@ main {
     white-space: nowrap;
 }
 
-.contrib-card:hover .card-read-more {
-    color: #00e0ff;
-}
+.contrib-card:hover .card-read-more { color: #00e0ff; }
 
-/* ── Divider rule (newspaper column feel) ───────────────────── */
+/* ── Divider rule ────────────────────────────────────────────── */
 .col-rule {
     grid-column: span 12;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(0, 183, 235, 0.25), transparent);
+    background: linear-gradient(to right, transparent, rgba(0,183,235,0.25), transparent);
     margin: 0.4rem 0;
 }
 
 /* ── Hidden state for filtering ─────────────────────────────── */
-.contrib-card.hidden {
-    display: none;
-}
+.contrib-card.hidden { display: none; }
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
-    .card-hero     { grid-column: span 12; }
-    .card-large    { grid-column: span 12; }
-    .card-medium   { grid-column: span 6; }
-    .card-standard { grid-column: span 6; }
-    .card-tall     { grid-column: span 6; }
-    .card-wide     { grid-column: span 12; }
+    .card-hero, .card-large              { grid-column: span 12; }
+    .card-medium, .card-standard,
+    .card-tall, .card-wide               { grid-column: span 6;  }
 }
 
 @media (max-width: 600px) {
-    .newspaper-grid {
-        grid-template-columns: 1fr;
-        gap: 1.1rem;
-    }
-    .card-hero,
-    .card-large,
-    .card-medium,
-    .card-standard,
-    .card-tall,
-    .card-wide     { grid-column: span 1; min-height: unset; }
-
+    .newspaper-grid { grid-template-columns: 1fr; gap: 1.1rem; }
+    .card-hero, .card-large, .card-medium,
+    .card-standard, .card-tall, .card-wide { grid-column: span 1; min-height: unset; }
     .card-image    { height: 140px !important; }
     main           { margin-top: clamp(100px, 18vh, 140px); }
 }
