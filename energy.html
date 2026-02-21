@@ -3,112 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{Subject} - Healthy Self</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
-            font-family: 'Roboto', sans-serif;
-            color: white;
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: transparent;
-            z-index: 10;
-            box-sizing: border-box;
-        }
-
-        .title {
-            font-size: clamp(2em, 5vw, 3.5em);
-            font-weight: 700;
-        }
-
-        .links {
-            display: flex;
-            gap: clamp(15px, 3vw, 30px);
-        }
-
-        .links a {
-            color: white;
-            text-decoration: none;
-            font-size: clamp(1.2em, 3vw, 1.2em);
-            transition: opacity 0.3s ease;
-        }
-
-        .links a:hover {
-            opacity: 0.8;
-        }
-
-        .content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .content-text {
-            font-size: clamp(2em, 5vw, 4em);
-            font-weight: 700;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-        }
-
-        footer {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: clamp(12px, 2vw, 14px);
-            background: transparent;
-            box-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-            margin-top: auto;
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Energy — Heal-thy-self</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="content.css">
 </head>
 <body>
+    <canvas id="starCanvas"></canvas>
     <nav class="navbar">
-        <div class="title">Healthy Self</div>
+        <a href="index.html" class="title">Heal-thy-self</a>
         <div class="links">
-            <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-            <a href="index.html">Home</a>
+      <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
-    <div class="content">
-        <div class="content-text">{Subject}</div>
-    </div>
-    <footer>
+    <a href="index.html" class="back-btn" aria-label="Back to home">Home</a>
+    <main>
+        <article class="content-wrapper">
+            <header class="topic-hero">
+                <p class="topic-label">Heal-thy-self &mdash; Personal Power</p>
+                <h1 class="topic-title">Energy</h1>
+                <p class="topic-tagline">Your energy is not infinite — but it is renewable. Learn where it goes, and reclaim what is yours.</p>
+            </header>
+            <blockquote class="intro-quote">&#8220;What you feed grows. What you neglect fades. Your energy follows the same law.&#8221;</blockquote>
+            <h2>Where Does Your Energy Actually Go?</h2>
+            <p>Most of us feel drained not because life is too demanding, but because we leak energy in ways we rarely notice. Personal power — that sense of vitality, drive, and presence — is quietly siphoned away by self-pity, resentment, worry, and the endless rehearsal of grievances in the mind. We do not lose our energy to the world nearly as often as we give it away to our own internal noise.</p>
+            <p>Energy spent judging others, replaying old hurts, or fearing future events is energy that cannot be used for <strong>actual living</strong>. The first and most powerful step is simply to become aware of where your attention — and therefore your power — is going right now. You cannot reclaim what you have not yet noticed you are losing.</p>
+            <h2>Why This Matters Today</h2>
+            <p>We live in an age deliberately engineered to drain us. Constant notifications, curated outrage, the pressure to be always performing — these are not neutral forces. They condition us to haemorrhage attention and energy without realising it. Reclaiming your energy is not a wellness trend. It is a deliberate refusal to be unconsciously depleted by a world that profits from your distraction.</p>
+            <h2>Practical Steps</h2>
+            <ul class="tips-list">
+                <li>For one day, notice every moment you replay an argument, rehearse a worry, or silently complain. Do not judge it — just see it. Awareness is the first act of reclamation.</li>
+                <li>Identify your single biggest energy drain right now. Is it a relationship? A habit? An unresolved decision? Name it honestly.</li>
+                <li>Rest is not laziness. Sleep, stillness, and time in nature are how we restore the energy that action consumes. Treat them as non-negotiable.</li>
+                <li>Stop explaining yourself unnecessarily. Every time we justify our choices to people who have not asked, we spend energy buying approval we do not need.</li>
+                <li>Take one small action you have been postponing. Indecision is one of the heaviest drains of all — movement, even imperfect movement, restores momentum.</li>
+            </ul>
+            <h2>A Thought to Carry</h2>
+            <p>You do not need more energy. You need to stop losing the energy you already have. Begin there — honestly, without drama — and the rest follows naturally.</p>
+            <div class="cta-section">
+                <p>Ready to explore another aspect of your wellbeing?</p>
+                <a href="index.html" class="glow-button">Return to the Orbit</a>
+            </div>
+        </article>
+    </main>
+    <footer>&copy; 2025 Healthy Self. All rights reserved.</footer>
+    <div class="mist-transition" id="mistOverlay"></div>
+    <script src="content-script.js"></script>
+</body>
+</html>
         &copy; 2025 Healthy Self. All rights reserved.
     </footer>
 </body>
