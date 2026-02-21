@@ -67,7 +67,7 @@ main {
     width: clamp(50px, 15vw, 100px);
     height: clamp(50px, 15vw, 100px);
     margin: calc(-1 * clamp(50px, 15vw, 100px) / 2);
-    z-index: 0;
+    z-index: 2;
     will-change: transform;
 }
 
