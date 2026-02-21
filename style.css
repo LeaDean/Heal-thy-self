@@ -283,20 +283,22 @@ textarea             { resize: vertical; min-height: 140px; }
         margin: 0 auto;
     }
 
-    .ring::before { inset: -8px; }
-    .ring::after  { inset:  8px; }
+    /* smaller central ring on mobile */
+    .ring::before { inset: -6px; }
+    .ring::after  { inset: 40px; }  /* larger inset = smaller inner circle */
 
+    /* bigger satellites on mobile */
     .satellite {
-        width: 55px;
-        height: 55px;
-        margin: -27px;
+        width: 70px;
+        height: 70px;
+        margin: -35px;
     }
 
     .satellite-content::before { inset: -3px; }
     .satellite-content::after  { inset:  3px; }
 
     .satellite-text {
-        font-size: 9px;
+        font-size: 10px;
     }
 }
 
@@ -307,12 +309,12 @@ textarea             { resize: vertical; min-height: 140px; }
     }
 
     .satellite {
-        width: 45px;
-        height: 45px;
-        margin: -22px;
+        width: 60px;
+        height: 60px;
+        margin: -30px;
     }
 
     .satellite-text {
-        font-size: 8px;
+        font-size: 9px;
     }
 }
