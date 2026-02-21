@@ -11,7 +11,7 @@ main {
     display: flex;
     justify-content: center;
     padding: 40px 20px;
-    margin-top: clamp(120px, 22vh, 180px);
+    margin-top: clamp(60px, 10vh, 100px);
 }
 
 /* ── Orbit container ────────────────────────────────────────── */
