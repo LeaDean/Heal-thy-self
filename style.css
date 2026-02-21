@@ -278,20 +278,41 @@ textarea             { resize: vertical; min-height: 140px; }
     }
 
     .container {
-        width: clamp(200px, 70vw, 280px);
-        height: clamp(200px, 70vw, 280px);
+        width: 220px;
+        height: 220px;
         margin: 0 auto;
+    }
+
+    .ring::before { inset: -8px; }
+    .ring::after  { inset:  8px; }
+
+    .satellite {
+        width: 55px;
+        height: 55px;
+        margin: -27px;
+    }
+
+    .satellite-content::before { inset: -3px; }
+    .satellite-content::after  { inset:  3px; }
+
+    .satellite-text {
+        font-size: 9px;
     }
 }
 
 @media (max-width: 480px) {
-    .ring::before { inset: -8px; }
-    .ring::after  { inset:  8px; }
-    .satellite-content::before { inset: -3px; }
-    .satellite-content::after  { inset:  3px; }
-
     .container {
-        width: clamp(180px, 75vw, 240px);
-        height: clamp(180px, 75vw, 240px);
+        width: 180px;
+        height: 180px;
+    }
+
+    .satellite {
+        width: 45px;
+        height: 45px;
+        margin: -22px;
+    }
+
+    .satellite-text {
+        font-size: 8px;
     }
 }
