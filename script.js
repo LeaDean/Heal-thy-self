@@ -88,7 +88,7 @@
         'Challenges': 'Lessons from conflict'
     };
 
-  let radius = window.innerWidth <= 480 ? 80 : window.innerWidth <= 768 ? 95 : 250;
+  let radius = window.innerWidth <= 480 ? 130 : window.innerWidth <= 768 ? 150 : 250;
 
     if (hasSats) {
         satellites.forEach(sat => {
@@ -144,7 +144,7 @@
         resizeTimer = setTimeout(() => {
             resizeCanvas();
             initStars();
-            radius = window.innerWidth <= 480 ? 80 : window.innerWidth <= 768 ? 95 : 250;
+            radius = window.innerWidth <= 480 ? 130 : window.innerWidth <= 768 ? 150 : 250;
         }, 150);
     });
 
