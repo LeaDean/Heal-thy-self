@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community — Heal-thy-self</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="community.css">
+</head>
+
+<body>
+
+    <canvas id="starCanvas"></canvas>
+
+    <nav class="navbar">
+        <a href="index.html" class="title">Heal-thy-self</a>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ── Page header ───────────────────────────────── -->
+        <header class="page-header">
+            <p class="edition-label">Heal-thy-self &mdash; Community Voices</p>
+            <h1>The Collective</h1>
+            <p class="subheading">A living gallery of contributions from people on the path — art, music, writing, poetry, and projects that reflect the work of genuine self-inquiry.</p>
+        </header>
+
+        <!-- ── Filter bar ────────────────────────────────── -->
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="art">Art</button>
+            <button class="filter-btn" data-filter="music">Music</button>
+            <button class="filter-btn" data-filter="writing">Writing</button>
+            <button class="filter-btn" data-filter="poetry">Poetry</button>
+            <button class="filter-btn" data-filter="project">Projects</button>
+        </div>
+
+        <!-- ── Newspaper grid ────────────────────────────── -->
+        <section class="newspaper-grid" id="grid">
+
+            <!-- HERO — Feature piece -->
+            <article class="contrib-card card-hero" data-category="writing" data-href="community/maya-chen.html">
+                <div class="card-glow"></div>
+                <div class="card-image writing">
+                    <div class="card-image-placeholder">✍</div>
+                </div>
+                <div class="card-body">
+                    <span class="card-category writing">Writing &mdash; Featured</span>
+                    <h2 class="card-title">The Conversation I Kept Having With Myself</h2>
+                    <p class="card-excerpt">For three years I journalled every morning without knowing why. I thought I was processing. Looking back, I was circling. There is a difference — and the moment I understood it, the circling stopped and something else began. This is an account of that shift, and what it cost me to make it.</p>
+                    <div class="card-footer">
+                        <div class="card-author">
+                            <div class="author-avatar">MC</div>
+                            <span class="author-name">Maya Chen</span>
+                        </div>
+                        <span class="card-read-more">Read More ›</span>
+                    </div>
+                </div>
+            </article>
+
+            <div class="col-rule"></div>
+
+            <!-- ROW 2: large + standard -->
+            <article class="contrib-card card-large" data-category="art" data-href="community/rafael-santos.html">
+                <div class="card-glow"></div>
+                <div class="card-image art">
+                    <div class="card-image-placeholder">🎨</div>
+                </div>
+                <div class="card-body">
+                    <span class="card-category art">Visual Art</span>
+                    <h2 class="card-title">Painting What I Could Not Say</h2>
+                    <p class="card-excerpt">Rafael Santos began painting during a period of profound loss. What started as a way to fill silence became a two-year series of works exploring grief, colour, and the strange peace that appears on the other side of sustained attention.</p>
+                    <div class="card-footer">
+                        <div class="card-author">
+                            <div class="author-avatar">RS</div>
+                            <span class="author-name">Rafael Santos</span>
+                        </div>
+                        <span class="card-read-more">Explore ›</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="contrib-card card-standard" data-category="music" data-href="community/leila-noor.html">
+                <div class="card-glow"></div>
+                <div class="card-image music">
+                    <div class="card-image-placeholder">♪</div>
+                </div>
+                <div class="card-body">
+                    <span class="card-category music">Music</span>
+                    <h2 class="card-title">Frequencies</h2>
+                    <p class="card-excerpt">An ambient sound piece composed during forty days of deliberate solitude. Leila Noor recorded the silences between thoughts.</p>
+                    <div class="card-footer">
+                        <div class="card-author">
+                            <div class="author-avatar">LN</div>
+                            <span class="author-name">Leila Noor</span>
+                        </div>
+                        <span class="card-read-more">Listen ›</span>
+                    </div>
+                </div>
+            </article>
+
+            <div class="col-rule"></div>
+
+            <!-- ROW 3: three standard cards -->
+            <article class="contrib-card card-standard" data-category="poetry" data-href="community/james-okafor.html">
+                <div class="card-glow"></div>
+                <div class="card-image poetry">
+                    <div class="card-image-placeholder">◈</div>
+                </div>
+                <div class="card-body">
+                    <span class="card-category poetry">Poetry</span>
+                    <h2 class="card-title">Still Water, Moving</h2>
+                    <p class="card-excerpt">A collection of seven short poems written across a single winter. Each one a different room in the same house.</p>
+                    <div class="card-footer">
+                        <div class="card-author">
+                            <div class="author-avatar">JO</div>
+                            <span class="author-name">James Okafor</span>
+                        </div>
+                        <span class="card-read-more">Read ›</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="contrib-card card-standard" data-category="project" data-href="community/sara-lindqvist.html">
+                <div class="card-glow"></div>
+                <div class="card-image project">
+                    <div class="card-image-placeholder">◎</div>
+                </div>
+                <div class="card-body">
+                    <span class="card-category project">Project</span>
+                    <h2 class="card-title">The Hundred-Day Letters</h2>
+                    <p class="card-excerpt">Sara Lindqvist wrote one letter a day for a hundred days — each one to a different version of herself. None were sent. All of them changed something.</p>
+                    <div class="card-footer">
+                        <div class="card-author">
+                            <div class="author-avatar">SL</div>
+                            <span class="author-name">Sara Lindqvist</span>
+                        </div>
+                        <span class="card-read-more">Discover ›</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="contrib-card card-standard" data-category="art" data-href="community/tom-adeyemi.html">
+                <div class="card-glow"></div>
+                <div class="card-image art">
+                    <div class="card-image-placeholder">⬡</div>
+                </div>
+                <div class="card-body">
+                    <span class="card-category art">Visual Art</span>
+                    <h2 class="card-title">Maps of the Interior</h2>
+                    <p class="card-excerpt">Intricate ink drawings charting internal landscapes — made without reference, from pure attention to what was present in a given moment.</p>
+                    <div class="card-footer">
+                        <div class="card-author">
+                            <div class="author-avatar">TA</div>
+                            <span class="author-name">Tom Adeyemi</span>
+                        </div>
+                        <span class="card-read-more">View ›</span>
+                    </div>
+                </div>
+            </article>
+
+            <div class="col-rule"></div>
+
+            <!-- ROW 4: wide + tall -->
+            <article class="contrib-card card-wide" data-category="writing" data-href="community/priya-mehta.html">
+                <div class="card-glow"></div>
+                <div class="card-image writing" style="height:90px;">
+                    <div class="card-image-placeholder" style="font-size:2rem;">✎</div>
+                </div>
+                <div class="card-body">
+                    <span class="card-category writing">Essay</span>
+                    <h2 class="card-title">What Exhaustion Was Trying to Tell Me</h2>
+                    <p class="card-excerpt">A personal account of burnout, recovery, and the unexpected clarity that arrived when there was nothing left to push through — and the question it left behind.</p>
+                    <div class="card-footer">
+                        <div class="card-author">
+                            <div class="author-avatar">PM</div>
+                            <span class="author-name">Priya Mehta</span>
+                        </div>
+                        <span class="card-read-more">Read ›</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="contrib-card card-tall" data-category="music" data-href="community/daniel-frost.html">
+                <div class="card-glow"></div>
+                <div class="card-image music">
+                    <div class="card-image-placeholder">𝄞</div>
+                </div>
+                <div class="card-body">
+                    <span class="card-category music">Music</span>
+                    <h2 class="card-title">Without a Map</h2>
+                    <p class="card-excerpt">Daniel Frost composed this six-track instrumental album entirely from improvisation — no edits, no retakes. Each piece recorded in a single sitting, then released as found. The result is music that breathes.</p>
+                    <div class="card-footer">
+                        <div class="card-author">
+                            <div class="author-avatar">DF</div>
+                            <span class="author-name">Daniel Frost</span>
+                        </div>
+                        <span class="card-read-more">Listen ›</span>
+                    </div>
+                </div>
+            </article>
+
+            <div class="col-rule"></div>
+
+            <!-- ROW 5: two medium cards -->
+            <article class="contrib-card card-medium" data-category="project" data-href="community/ana-torres.html">
+                <div class="card-glow"></div>
+                <div class="card-image project">
+                    <div class="card-image-placeholder">◉</div>
+                </div>
+                <div class="card-body">
+                    <span class="card-category project">Community Project</span>
+                    <h2 class="card-title">The Listening Circles</h2>
+                    <p class="card-excerpt">Ana Torres founded a network of small weekly gatherings — no agenda, no advice, no phones — simply people sitting together with the shared intention of being genuinely heard. Now running in six cities.</p>
+                    <div class="card-footer">
+                        <div class="card-author">
+                            <div class="author-avatar">AT</div>
+                            <span class="author-name">Ana Torres</span>
+                        </div>
+                        <span class="card-read-more">Learn More ›</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="contrib-card card-medium" data-category="poetry" data-href="community/yuki-tanaka.html">
+                <div class="card-glow"></div>
+                <div class="card-image poetry">
+                    <div class="card-image-placeholder">✦</div>
+                </div>
+                <div class="card-body">
+                    <span class="card-category poetry">Poetry</span>
+                    <h2 class="card-title">Ordinary Things, Precisely Seen</h2>
+                    <p class="card-excerpt">Yuki Tanaka&rsquo;s poems are deceptively simple. A cup of tea. A window. The sound of a familiar voice. Each one is an exercise in paying attention so completely that the ordinary becomes something else.</p>
+                    <div class="card-footer">
+                        <div class="card-author">
+                            <div class="author-avatar">YT</div>
+                            <span class="author-name">Yuki Tanaka</span>
+                        </div>
+                        <span class="card-read-more">Read ›</span>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+        <!-- end grid -->
+
+    </main>
+
+    <footer>&copy; 2025 Healthy Self. All rights reserved.</footer>
+
+    <div class="mist-transition" id="mistOverlay"></div>
+
+    <script src="content-script.js"></script>
+    <script>
+        // ── Category filter ─────────────────────────────────────
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards      = document.querySelectorAll('.contrib-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+
+                // update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // show / hide cards
+                cards.forEach(card => {
+                    const match = filter === 'all' || card.dataset.category === filter;
+                    card.classList.toggle('hidden', !match);
+                });
+            });
+        });
+
+        // ── Card click navigation ───────────────────────────────
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const href = card.dataset.href;
+                if (href) window.location.href = href;
+            });
+        });
+    </script>
+
+</body>
+</html>
