@@ -3,113 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{Subject} - Healthy Self</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
-            font-family: 'Roboto', sans-serif;
-            color: white;
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: transparent;
-            z-index: 10;
-            box-sizing: border-box;
-        }
-
-        .title {
-            font-size: clamp(2em, 5vw, 3.5em);
-            font-weight: 700;
-        }
-
-        .links {
-            display: flex;
-            gap: clamp(15px, 3vw, 30px);
-        }
-
-        .links a {
-            color: white;
-            text-decoration: none;
-            font-size: clamp(1.2em, 3vw, 1.2em);
-            transition: opacity 0.3s ease;
-        }
-
-        .links a:hover {
-            opacity: 0.8;
-        }
-
-        .content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .content-text {
-            font-size: clamp(2em, 5vw, 4em);
-            font-weight: 700;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-        }
-
-        footer {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: clamp(12px, 2vw, 14px);
-            background: transparent;
-            box-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-            margin-top: auto;
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Focus — Heal-thy-self</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="content.css">
 </head>
 <body>
+    <canvas id="starCanvas"></canvas>
     <nav class="navbar">
-        <div class="title">Healthy Self</div>
+        <a href="index.html" class="title">Heal-thy-self</a>
         <div class="links">
-            <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-            <a href="index.html">Home</a>
+     <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
-    <div class="content">
-        <div class="content-text">{Subject}</div>
-    </div>
-    <footer>
-        &copy; 2025 Healthy Self. All rights reserved.
-    </footer>
+    <a href="index.html" class="back-btn" aria-label="Back to home">Home</a>
+    <main>
+        <article class="content-wrapper">
+            <header class="topic-hero">
+                <p class="topic-label">Heal-thy-self &mdash; Attention &amp; Intent</p>
+                <h1 class="topic-title">Focus</h1>
+                <p class="topic-tagline">Your world is shaped by what you consistently give your attention to. It is worth choosing more carefully.</p>
+            </header>
+            <blockquote class="intro-quote">&#8220;Where attention goes, energy flows — and what receives your energy consistently becomes your reality.&#8221;</blockquote>
+            <h2>Attention Is Not Passive</h2>
+            <p>Attention is not simply the act of looking at something. It is an active, creative force. Where we consistently place our focus, we feed. Where we feed, things grow. This applies equally to our fears, our potential, our resentments, and our dreams. Most of us focus by accident — reacting to whatever shouts loudest in the moment — rather than by deliberate choice.</p>
+            <p>When your attention and your deeper intentions are pointing in the same direction, something becomes possible that is difficult to describe but easy to feel: a sense of momentum, coherence, and aliveness. When they conflict — when you say you want one thing but give your attention daily to another — you experience it as paralysis, exhaustion, or the persistent feeling that life is happening <em>to</em> you rather than <em>through</em> you.</p>
+            <h2>The Distraction Economy</h2>
+            <p>Today&#8217;s world is in the business of fragmenting your attention and monetising the pieces. Scrolling, multitasking, and the constant refresh of feeds are not neutral habits — they condition the mind to be incapable of sustained focus. And a mind that cannot sustain focus cannot act with precision. Imprecise action rarely produces meaningful change. This is not a moral failing — it is a mechanical consequence of how attention works.</p>
+            <h2>Practical Steps</h2>
+            <ul class="tips-list">
+                <li>Before opening your phone in the morning, ask: what do I actually intend for today? Even one clear intention reshapes the entire day that follows it.</li>
+                <li>Practise single-tasking for one hour. Close extra tabs. Do one thing. Notice how uncomfortable this feels at first — that discomfort is important information about how fragmented your attention has become.</li>
+                <li>Observe what you think about most — not what you want to think about, but what you actually do. That pattern is currently building your future.</li>
+                <li>When you feel pulled in all directions, stop. Breathe. Ask: what is the single most important thing right now? Then do only that, fully.</li>
+                <li>Remove one habitual source of distraction from your environment this week. Not forever — just for a week. See what clarity returns to fill the space.</li>
+            </ul>
+            <h2>A Thought to Carry</h2>
+            <p>You cannot focus on everything. But you can choose, clearly and repeatedly, what matters most — and allow that choice to shape everything else.</p>
+            <div class="cta-section">
+                <p>Ready to explore another aspect of your wellbeing?</p>
+                <a href="index.html" class="glow-button">Return to the Orbit</a>
+            </div>
+        </article>
+    </main>
+    <footer>&copy; 2025 Healthy Self. All rights reserved.</footer>
+    <div class="mist-transition" id="mistOverlay"></div>
+    <script src="content-script.js"></script>
 </body>
 </html>
