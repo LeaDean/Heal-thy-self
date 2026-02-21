@@ -284,8 +284,8 @@ textarea             { resize: vertical; min-height: 140px; }
     }
 
     /* smaller central ring on mobile */
-    .ring::before { inset: -6px; }
-    .ring::after  { inset: 40px; }  /* larger inset = smaller inner circle */
+  .ring::before { inset: -6px; }
+.ring::after  { inset:  6px; }
 
     /* bigger satellites on mobile */
     .satellite {
