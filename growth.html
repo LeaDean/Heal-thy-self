@@ -3,113 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{Subject} - Healthy Self</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
-            font-family: 'Roboto', sans-serif;
-            color: white;
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: transparent;
-            z-index: 10;
-            box-sizing: border-box;
-        }
-
-        .title {
-            font-size: clamp(2em, 5vw, 3.5em);
-            font-weight: 700;
-        }
-
-        .links {
-            display: flex;
-            gap: clamp(15px, 3vw, 30px);
-        }
-
-        .links a {
-            color: white;
-            text-decoration: none;
-            font-size: clamp(1.2em, 3vw, 1.2em);
-            transition: opacity 0.3s ease;
-        }
-
-        .links a:hover {
-            opacity: 0.8;
-        }
-
-        .content {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .content-text {
-            font-size: clamp(2em, 5vw, 4em);
-            font-weight: 700;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-        }
-
-        footer {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: clamp(12px, 2vw, 14px);
-            background: transparent;
-            box-shadow: 0 0 10px rgba(0, 183, 235, 0.8);
-            margin-top: auto;
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>Growth — Heal-thy-self</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="content.css">
 </head>
 <body>
+    <canvas id="starCanvas"></canvas>
     <nav class="navbar">
-        <div class="title">Healthy Self</div>
+        <a href="index.html" class="title">Heal-thy-self</a>
         <div class="links">
-            <a href="#services">Services</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-            <a href="index.html">Home</a>
+         <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
-    <div class="content">
-        <div class="content-text">{Subject}</div>
-    </div>
-    <footer>
-        &copy; 2025 Healthy Self. All rights reserved.
-    </footer>
+    <a href="index.html" class="back-btn" aria-label="Back to home">Home</a>
+    <main>
+        <article class="content-wrapper">
+            <header class="topic-hero">
+                <p class="topic-label">Heal-thy-self &mdash; Unrealised Potential</p>
+                <h1 class="topic-title">Growth</h1>
+                <p class="topic-tagline">Your limitations are not obstacles to who you could become. They are, if you look closely, the very doorway to it.</p>
+            </header>
+            <blockquote class="intro-quote">&#8220;The qualities you most struggle with are almost always the ones your life is asking you to develop next.&#8221;</blockquote>
+            <h2>Rethinking What Holds You Back</h2>
+            <p>Consider a genuinely different way of looking at your weaknesses: what you struggle with most is not a defect to be overcome or hidden, but a signal pointing directly toward your greatest area of potential growth. The things that frustrate you most about yourself, the patterns you keep repeating, the qualities you genuinely admire in others but feel you lack — these are not evidence of inadequacy. They are, if you are willing to look at them honestly, the curriculum of your particular path.</p>
+            <p>This is not a comfortable reframe. It is far easier to avoid our weaknesses, work around them, or compensate for them with our strengths. But real development — the kind that actually changes something lasting — almost always requires turning <strong>toward</strong> what is difficult rather than away from it. Not because difficulty is good in itself, but because that is precisely where the real material for growth tends to live.</p>
+            <h2>Life as a Continuous Invitation</h2>
+            <p>Growth is not a project with a completion date. It is an ongoing process of life presenting us with experiences that invite us to develop qualities we do not yet possess, through the very circumstances that challenge us most. The difficult colleague who keeps appearing. The relationship pattern that keeps repeating. The creative block that will not shift. These are not random misfortunes. They are, with a degree of honest reflection, remarkably consistent in what they are asking us to face and to develop. The only question is whether we are willing to accept the invitation.</p>
+            <h2>Practical Steps</h2>
+            <ul class="tips-list">
+                <li>Identify your most persistent weakness — the one you are most tired of encountering in yourself. Then ask: what is the opposite quality? That opposite is probably exactly what your path is asking you to develop.</li>
+                <li>Notice where you feel envy toward others. Envy, honestly examined, is usually misdirected longing — it points toward something you genuinely want to cultivate in yourself rather than simply take from someone else.</li>
+                <li>Growth that lasts is almost always uncomfortable at first. Learn to distinguish between the productive discomfort of genuine stretching and the destructive pain of self-harm. One is worth moving toward. The other is not.</li>
+                <li>Look at your three most significant challenges from the past year. What quality did each one require of you that had not previously been required? That list is your actual curriculum.</li>
+                <li>Stop waiting to feel ready. Readiness does not precede growth — it grows during the act of beginning. Start before you feel prepared, and adjust as you go.</li>
+            </ul>
+            <h2>A Thought to Carry</h2>
+            <p>Every limitation you currently have contains, somewhere within it, the seed of its own resolution. The task is not to be without weakness. It is to keep moving honestly toward your weaknesses, with enough curiosity and courage to let them teach you what only they can.</p>
+            <div class="cta-section">
+                <p>Ready to explore another aspect of your wellbeing?</p>
+                <a href="index.html" class="glow-button">Return to the Orbit</a>
+            </div>
+        </article>
+    </main>
+    <footer>&copy; 2025 Healthy Self. All rights reserved.</footer>
+    <div class="mist-transition" id="mistOverlay"></div>
+    <script src="content-script.js"></script>
 </body>
 </html>
