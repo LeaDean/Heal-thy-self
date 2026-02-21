@@ -17,8 +17,8 @@ main {
 /* ── Orbit container ────────────────────────────────────────── */
 .container {
     position: relative;
-    width: clamp(150px, 50vw, 300px);
-    height: clamp(150px, 50vw, 300px);
+    width: clamp(150px, 50vw, 220px);
+    height: clamp(150px, 50vw, 220px);
     margin-top: clamp(120px, 30vh, 350px);
     margin-bottom: 50px;
 }
