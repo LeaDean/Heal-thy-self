@@ -42,7 +42,7 @@ main {
 .ring::before {
     content: '';
     position: absolute;
-    inset: -11px;
+    inset: -8px;
     background: conic-gradient(#00b7eb, #ffffff, #00b7eb);
     border-radius: 50%;
     animation: rotateGradient 4s linear infinite;
@@ -53,7 +53,7 @@ main {
 .ring::after {
     content: '';
     position: absolute;
-    inset: 11px;
+    inset: 8px;
     background: radial-gradient(ellipse at center, #1a1a3d 0%, #000000 70%);
     border-radius: 50%;
     z-index: -1;
