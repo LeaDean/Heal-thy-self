@@ -83,141 +83,240 @@
             </div>
         </section>
 
-        <section class="tarot-deck">
+    <!-- 
+    REPLACE your existing <section class="tarot-deck"> block in index.html with this.
+    The carousel JS below goes just before </body>
+-->
 
-    <a class="tarot-card card-energy" href="energy.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-energy"></div>
-        </div>
-        <div class="card-text-panel">
-            <span class="card-number">I</span>
-            <span class="card-name">Energy</span>
-            <span class="card-tagline">Boost Your Drive</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+<section class="tarot-deck">
 
-    <a class="tarot-card card-focus" href="focus.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-focus"></div>
-        </div>
-        <div class="card-text-panel">
-            <span class="card-number">II</span>
-            <span class="card-name">Focus</span>
-            <span class="card-tagline">Sharpen Your Mind</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+    <!-- Welcome header -->
+    <div class="tarot-welcome">
+        <span class="welcome-label">Heal-thy-self</span>
+        <h2>Choose Your Path</h2>
+        <p>Each card opens a space for genuine self-inquiry. Swipe to explore the eleven territories of personal work.</p>
+        <span class="tarot-invite">← Swipe to explore →</span>
+    </div>
 
-    <a class="tarot-card card-purpose" href="purpose.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-purpose"></div>
-        </div>
-        <div class="card-text-panel">
-            <span class="card-number">III</span>
-            <span class="card-name">Purpose</span>
-            <span class="card-tagline">Find Your Direction</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+    <!-- Carousel -->
+    <div class="tarot-carousel">
+        <div class="tarot-track" id="tarotTrack">
 
-    <a class="tarot-card card-strength" href="strength.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-strength"></div>
-        </div>
-        <div class="card-text-panel">
-            <span class="card-number">IV</span>
-            <span class="card-name">Strength</span>
-            <span class="card-tagline">Build Resilience</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+            <a class="tarot-card card-energy active" href="energy.html">
+                <span class="card-number">I</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-energy"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Energy</span>
+                    <span class="card-tagline">Boost Your Drive</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
 
-    <a class="tarot-card card-peace" href="peace.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-peace"></div>
-        </div>
-        <div class="card-text-panel">
-            <span class="card-number">V</span>
-            <span class="card-name">Peace</span>
-            <span class="card-tagline">Inner Stillness</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+            <a class="tarot-card card-focus" href="focus.html">
+                <span class="card-number">II</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-focus"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Focus</span>
+                    <span class="card-tagline">Sharpen Your Mind</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
 
-    <a class="tarot-card card-clarity" href="clarity.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-clarity"></div>
-        </div>
-        <div class="card-text-panel">
-            <span class="card-number">VI</span>
-            <span class="card-name">Clarity</span>
-            <span class="card-tagline">Removing Doubt</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+            <a class="tarot-card card-purpose" href="purpose.html">
+                <span class="card-number">III</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-purpose"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Purpose</span>
+                    <span class="card-tagline">Find Your Direction</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
 
-    <a class="tarot-card card-harmony" href="harmony.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-harmony"></div>
-        </div>
-        <div class="card-text-panel">
-            <span class="card-number">VII</span>
-            <span class="card-name">Harmony</span>
-            <span class="card-tagline">Live in Sync</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+            <a class="tarot-card card-strength" href="strength.html">
+                <span class="card-number">IV</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-strength"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Strength</span>
+                    <span class="card-tagline">Build Resilience</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
 
-    <a class="tarot-card card-vitality" href="vitality.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-vitality"></div>
-        </div>
-        <div class="card-text-panel">
-            <span class="card-number">VIII</span>
-            <span class="card-name">Vitality</span>
-            <span class="card-tagline">Thrive with Vigour</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+            <a class="tarot-card card-peace" href="peace.html">
+                <span class="card-number">V</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-peace"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Peace</span>
+                    <span class="card-tagline">Inner Stillness</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
 
-    <a class="tarot-card card-joy" href="joy.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-joy"></div>
-        </div>
-        <div class="card-text-panel">
-            <span class="card-number">IX</span>
-            <span class="card-name">Joy</span>
-            <span class="card-tagline">Spark Happiness</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+            <a class="tarot-card card-clarity" href="clarity.html">
+                <span class="card-number">VI</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-clarity"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Clarity</span>
+                    <span class="card-tagline">Removing Doubt</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
 
-    <a class="tarot-card card-growth" href="growth.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-growth"></div>
-        </div>
-        <div class="card-text-panel">
-            <span class="card-number">X</span>
-            <span class="card-name">Growth</span>
-            <span class="card-tagline">Evolve Every Day</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+            <a class="tarot-card card-harmony" href="harmony.html">
+                <span class="card-number">VII</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-harmony"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Harmony</span>
+                    <span class="card-tagline">Live in Sync</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
 
-    <a class="tarot-card card-challenges" href="Challenges.html">
-        <div class="card-symbol-panel">
-            <div class="card-symbol sym-challenges"></div>
+            <a class="tarot-card card-vitality" href="vitality.html">
+                <span class="card-number">VIII</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-vitality"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Vitality</span>
+                    <span class="card-tagline">Thrive with Vigour</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
+
+            <a class="tarot-card card-joy" href="joy.html">
+                <span class="card-number">IX</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-joy"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Joy</span>
+                    <span class="card-tagline">Spark Happiness</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
+
+            <a class="tarot-card card-growth" href="growth.html">
+                <span class="card-number">X</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-growth"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Growth</span>
+                    <span class="card-tagline">Evolve Every Day</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
+
+            <a class="tarot-card card-challenges" href="Challenges.html">
+                <span class="card-number">XI</span>
+                <div class="card-symbol-panel"><div class="card-symbol sym-challenges"></div></div>
+                <div class="card-text-panel">
+                    <span class="card-name">Challenges</span>
+                    <span class="card-tagline">Lessons from Conflict</span>
+                    <span class="card-arrow">Enter →</span>
+                </div>
+            </a>
+
         </div>
-        <div class="card-text-panel">
-            <span class="card-number">XI</span>
-            <span class="card-name">Challenges</span>
-            <span class="card-tagline">Lessons from Conflict</span>
-            <span class="card-arrow">Enter →</span>
-        </div>
-    </a>
+    </div>
+
+    <!-- Dot indicators -->
+    <div class="tarot-dots" id="tarotDots"></div>
 
 </section>
+
+<!-- ── Carousel JS — add just before </body> ── -->
+<script>
+(function () {
+    const track  = document.getElementById('tarotTrack');
+    const dotsEl = document.getElementById('tarotDots');
+    if (!track || !dotsEl) return;
+
+    const cards = Array.from(track.querySelectorAll('.tarot-card'));
+    const total = cards.length;
+    let current = 0;
+    let startX = 0;
+    let isDragging = false;
+    let prevented = false;
+
+    // Build dots
+    cards.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'tarot-dot' + (i === 0 ? ' active' : '');
+        dotsEl.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsEl.querySelectorAll('.tarot-dot'));
+
+    function getCardWidth() {
+        return cards[0].offsetWidth + (cards[0].offsetLeft * 2);
+    }
+
+    function goTo(index, navigate) {
+        if (index < 0 || index >= total) return;
+
+        // Only navigate if tapping the already-active card
+        if (navigate && index === current) {
+            window.location.href = cards[index].getAttribute('href');
+            return;
+        }
+
+        current = index;
+
+        // Centre the active card
+        const cardW   = cards[0].offsetWidth;
+        const marginW = parseFloat(getComputedStyle(cards[0]).marginLeft) * 2;
+        const step    = cardW + marginW;
+        const offset  = (track.parentElement.offsetWidth / 2) - (cardW / 2) - (current * step);
+        track.style.transform = `translateX(${offset}px)`;
+
+        // Update classes
+        cards.forEach((c, i) => c.classList.toggle('active', i === current));
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    // Initialise position
+    setTimeout(() => goTo(0, false), 50);
+
+    // Touch handling
+    track.addEventListener('touchstart', (e) => {
+        startX    = e.touches[0].clientX;
+        isDragging = true;
+        prevented  = false;
+    }, { passive: true });
+
+    track.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const dx = e.touches[0].clientX - startX;
+        // If horizontal movement dominant, prevent vertical scroll
+        if (!prevented && Math.abs(dx) > 8) {
+            e.preventDefault();
+            prevented = true;
+        }
+    }, { passive: false });
+
+    track.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) < 8) {
+            // Tap — navigate if on active card
+            goTo(current, true);
+        } else if (dx < -40) {
+            goTo(current + 1, false);
+        } else if (dx > 40) {
+            goTo(current - 1, false);
+        }
+    });
+
+    // Prevent link navigation on swipe
+    cards.forEach((card, i) => {
+        card.addEventListener('click', (e) => {
+            if (i !== current) {
+                e.preventDefault();
+                goTo(i, false);
+            }
+        });
+    });
+
+    window.addEventListener('resize', () => goTo(current, false));
+})();
+</script>
 
         <!-- ── About taster — mobile only ───────────── -->
         <section class="mobile-taster" id="about-taster">
