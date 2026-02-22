@@ -73,13 +73,11 @@
     }
 
     /* ── Carousel wrapper ────────────────────────────────────── */
-    .tarot-carousel {
-        width: 100%;
-    overflow: visible;
-    padding: 0 12vw;
-    box-sizing: border-box;
+ .tarot-carousel {
+    width: 100%;
+    overflow: hidden;
     position: relative;
-    }
+}
 
     .tarot-track {
         display: flex;
@@ -90,8 +88,8 @@
     }
 
     /* ── Individual card ─────────────────────────────────────── */
-    .tarot-card {
-      flex-shrink: 0;
+  .tarot-card {
+    flex-shrink: 0;
     width: 58vw;
     max-width: 240px;
     min-height: 360px;
