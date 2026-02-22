@@ -1,0 +1,494 @@
+/* ============================================================
+   mobile-cards.css  —  Tarot card stack, mobile only
+   Loaded by index.html, hidden on desktop
+   ============================================================ */
+
+.tarot-deck {
+    display: none; /* hidden on desktop */
+}
+
+@media (max-width: 768px) and (pointer: coarse) {
+
+    .tarot-deck {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 20px 24px 60px;
+        gap: 16px;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* ── Individual card ─────────────────────────────────────── */
+    .tarot-card {
+        width: 100%;
+        max-width: 320px;
+        min-height: 200px;
+        border-radius: 16px;
+        border: 1px solid rgba(0, 183, 235, 0.25);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+        will-change: transform;
+        text-decoration: none;
+    }
+
+    .tarot-card:active {
+        transform: scale(0.97);
+    }
+
+    /* ── Corner flourishes ───────────────────────────────────── */
+    .tarot-card::before,
+    .tarot-card::after {
+        content: '✦';
+        position: absolute;
+        font-size: 0.6rem;
+        color: rgba(0, 183, 235, 0.4);
+        z-index: 3;
+    }
+    .tarot-card::before { top: 8px; left: 10px; }
+    .tarot-card::after  { bottom: 8px; right: 10px; }
+
+    /* ── Symbol panel (left side) ────────────────────────────── */
+    .card-symbol-panel {
+        width: 110px;
+        min-height: 200px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    /* ── CSS Symbol ──────────────────────────────────────────── */
+    .card-symbol {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+    }
+
+    /* ── Card text panel (right side) ────────────────────────── */
+    .card-text-panel {
+        flex: 1;
+        padding: 20px 18px 20px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-left: 1px solid rgba(0, 183, 235, 0.12);
+    }
+
+    .card-number {
+        font-family: "Megrim", system-ui;
+        font-size: 0.7rem;
+        letter-spacing: 4px;
+        color: rgba(0, 183, 235, 0.45);
+        margin-bottom: 0.5rem;
+    }
+
+    .card-name {
+        font-family: "Megrim", system-ui;
+        font-size: clamp(1.5rem, 5vw, 1.9rem);
+        line-height: 1.05;
+        margin-bottom: 0.6rem;
+    }
+
+    .card-tagline {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(160, 200, 220, 0.6);
+        line-height: 1.4;
+    }
+
+    .card-arrow {
+        font-family: "Megrim", system-ui;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        margin-top: 1rem;
+        opacity: 0.5;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       CARD THEMES — unique gradient + glow per topic
+       ══════════════════════════════════════════════════════════ */
+
+    /* Energy — warm amber/gold */
+    .card-energy {
+        background: linear-gradient(135deg, #0d0a02 0%, #1a1000 60%, #0a0800 100%);
+        box-shadow: 0 0 20px rgba(255, 160, 20, 0.12), inset 0 0 30px rgba(255,140,0,0.04);
+    }
+    .card-energy .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(255,140,0,0.08), rgba(255,80,0,0.04));
+    }
+    .card-energy .card-name { color: #ffb830; text-shadow: 0 0 14px rgba(255,160,30,0.5); }
+    .card-energy .card-tagline { color: rgba(255,180,80,0.55); }
+    .card-energy .card-arrow { color: #ffb830; }
+    .card-energy::before, .card-energy::after { color: rgba(255,160,30,0.4); }
+    .card-energy .card-text-panel { border-color: rgba(255,140,0,0.12); }
+
+    /* Focus — electric blue */
+    .card-focus {
+        background: linear-gradient(135deg, #020a14 0%, #001a2e 60%, #000d1a 100%);
+        box-shadow: 0 0 20px rgba(0,160,255,0.12), inset 0 0 30px rgba(0,120,255,0.04);
+    }
+    .card-focus .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(0,160,255,0.08), rgba(0,80,200,0.04));
+    }
+    .card-focus .card-name { color: #40b0ff; text-shadow: 0 0 14px rgba(40,160,255,0.5); }
+    .card-focus .card-tagline { color: rgba(80,160,255,0.55); }
+    .card-focus .card-arrow { color: #40b0ff; }
+    .card-focus::before, .card-focus::after { color: rgba(40,160,255,0.4); }
+    .card-focus .card-text-panel { border-color: rgba(0,140,255,0.12); }
+
+    /* Purpose — deep violet */
+    .card-purpose {
+        background: linear-gradient(135deg, #08020e 0%, #160828 60%, #0a0414 100%);
+        box-shadow: 0 0 20px rgba(140,60,255,0.12), inset 0 0 30px rgba(120,40,220,0.04);
+    }
+    .card-purpose .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(140,60,255,0.08), rgba(80,20,180,0.04));
+    }
+    .card-purpose .card-name { color: #b060ff; text-shadow: 0 0 14px rgba(140,60,255,0.5); }
+    .card-purpose .card-tagline { color: rgba(160,100,255,0.55); }
+    .card-purpose .card-arrow { color: #b060ff; }
+    .card-purpose::before, .card-purpose::after { color: rgba(140,60,255,0.4); }
+    .card-purpose .card-text-panel { border-color: rgba(120,40,220,0.12); }
+
+    /* Strength — deep crimson */
+    .card-strength {
+        background: linear-gradient(135deg, #0e0202 0%, #200808 60%, #100404 100%);
+        box-shadow: 0 0 20px rgba(220,40,60,0.12), inset 0 0 30px rgba(180,20,40,0.04);
+    }
+    .card-strength .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(220,40,60,0.08), rgba(160,10,30,0.04));
+    }
+    .card-strength .card-name { color: #ff5060; text-shadow: 0 0 14px rgba(220,50,60,0.5); }
+    .card-strength .card-tagline { color: rgba(255,100,110,0.55); }
+    .card-strength .card-arrow { color: #ff5060; }
+    .card-strength::before, .card-strength::after { color: rgba(220,50,60,0.4); }
+    .card-strength .card-text-panel { border-color: rgba(200,30,50,0.12); }
+
+    /* Peace — deep teal */
+    .card-peace {
+        background: linear-gradient(135deg, #020e0e 0%, #001e1e 60%, #000e0e 100%);
+        box-shadow: 0 0 20px rgba(0,200,180,0.12), inset 0 0 30px rgba(0,160,150,0.04);
+    }
+    .card-peace .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(0,200,180,0.08), rgba(0,120,110,0.04));
+    }
+    .card-peace .card-name { color: #00d4c0; text-shadow: 0 0 14px rgba(0,200,180,0.5); }
+    .card-peace .card-tagline { color: rgba(0,200,180,0.55); }
+    .card-peace .card-arrow { color: #00d4c0; }
+    .card-peace::before, .card-peace::after { color: rgba(0,200,180,0.4); }
+    .card-peace .card-text-panel { border-color: rgba(0,180,160,0.12); }
+
+    /* Clarity — silver white */
+    .card-clarity {
+        background: linear-gradient(135deg, #08090e 0%, #101420 60%, #080a14 100%);
+        box-shadow: 0 0 20px rgba(180,200,255,0.12), inset 0 0 30px rgba(160,180,240,0.04);
+    }
+    .card-clarity .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(180,200,255,0.08), rgba(120,140,220,0.04));
+    }
+    .card-clarity .card-name { color: #c0d0ff; text-shadow: 0 0 14px rgba(180,200,255,0.5); }
+    .card-clarity .card-tagline { color: rgba(180,200,255,0.55); }
+    .card-clarity .card-arrow { color: #c0d0ff; }
+    .card-clarity::before, .card-clarity::after { color: rgba(180,200,255,0.4); }
+    .card-clarity .card-text-panel { border-color: rgba(160,180,255,0.12); }
+
+    /* Harmony — sage green */
+    .card-harmony {
+        background: linear-gradient(135deg, #030e06 0%, #081a0c 60%, #040e07 100%);
+        box-shadow: 0 0 20px rgba(60,200,100,0.12), inset 0 0 30px rgba(40,160,80,0.04);
+    }
+    .card-harmony .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(60,200,100,0.08), rgba(30,140,60,0.04));
+    }
+    .card-harmony .card-name { color: #50d878; text-shadow: 0 0 14px rgba(60,200,100,0.5); }
+    .card-harmony .card-tagline { color: rgba(80,200,110,0.55); }
+    .card-harmony .card-arrow { color: #50d878; }
+    .card-harmony::before, .card-harmony::after { color: rgba(60,200,100,0.4); }
+    .card-harmony .card-text-panel { border-color: rgba(40,180,80,0.12); }
+
+    /* Vitality — vibrant cyan */
+    .card-vitality {
+        background: linear-gradient(135deg, #020e0e 0%, #001820 60%, #000e14 100%);
+        box-shadow: 0 0 20px rgba(0,210,240,0.12), inset 0 0 30px rgba(0,180,220,0.04);
+    }
+    .card-vitality .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(0,210,240,0.08), rgba(0,150,200,0.04));
+    }
+    .card-vitality .card-name { color: #00d8f0; text-shadow: 0 0 14px rgba(0,210,240,0.5); }
+    .card-vitality .card-tagline { color: rgba(0,200,230,0.55); }
+    .card-vitality .card-arrow { color: #00d8f0; }
+    .card-vitality::before, .card-vitality::after { color: rgba(0,200,230,0.4); }
+    .card-vitality .card-text-panel { border-color: rgba(0,190,220,0.12); }
+
+    /* Joy — warm rose gold */
+    .card-joy {
+        background: linear-gradient(135deg, #0e0408 0%, #200810 60%, #100408 100%);
+        box-shadow: 0 0 20px rgba(255,100,160,0.12), inset 0 0 30px rgba(220,60,130,0.04);
+    }
+    .card-joy .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(255,100,160,0.08), rgba(200,40,110,0.04));
+    }
+    .card-joy .card-name { color: #ff80b0; text-shadow: 0 0 14px rgba(255,100,160,0.5); }
+    .card-joy .card-tagline { color: rgba(255,120,160,0.55); }
+    .card-joy .card-arrow { color: #ff80b0; }
+    .card-joy::before, .card-joy::after { color: rgba(255,100,160,0.4); }
+    .card-joy .card-text-panel { border-color: rgba(220,60,130,0.12); }
+
+    /* Growth — forest emerald */
+    .card-growth {
+        background: linear-gradient(135deg, #020a04 0%, #071408 60%, #030a04 100%);
+        box-shadow: 0 0 20px rgba(40,180,80,0.12), inset 0 0 30px rgba(20,140,60,0.04);
+    }
+    .card-growth .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(40,180,80,0.08), rgba(10,120,40,0.04));
+    }
+    .card-growth .card-name { color: #40c060; text-shadow: 0 0 14px rgba(40,180,80,0.5); }
+    .card-growth .card-tagline { color: rgba(60,180,90,0.55); }
+    .card-growth .card-arrow { color: #40c060; }
+    .card-growth::before, .card-growth::after { color: rgba(40,180,80,0.4); }
+    .card-growth .card-text-panel { border-color: rgba(20,160,60,0.12); }
+
+    /* Challenges — dark storm grey/gold */
+    .card-challenges {
+        background: linear-gradient(135deg, #080808 0%, #141208 60%, #0a0a06 100%);
+        box-shadow: 0 0 20px rgba(200,180,60,0.12), inset 0 0 30px rgba(160,140,20,0.04);
+    }
+    .card-challenges .card-symbol-panel {
+        background: linear-gradient(160deg, rgba(200,180,60,0.08), rgba(140,120,10,0.04));
+    }
+    .card-challenges .card-name { color: #d4b840; text-shadow: 0 0 14px rgba(200,180,60,0.5); }
+    .card-challenges .card-tagline { color: rgba(200,180,80,0.55); }
+    .card-challenges .card-arrow { color: #d4b840; }
+    .card-challenges::before, .card-challenges::after { color: rgba(200,180,60,0.4); }
+    .card-challenges .card-text-panel { border-color: rgba(180,160,30,0.12); }
+
+    /* ══════════════════════════════════════════════════════════
+       CSS SYMBOLS — unique geometric per card
+       ══════════════════════════════════════════════════════════ */
+
+    /* Energy — radiating sun burst */
+    .sym-energy {
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        border: 2px solid rgba(255,160,30,0.7);
+        box-shadow: 0 0 12px rgba(255,140,0,0.5), inset 0 0 8px rgba(255,120,0,0.2);
+        position: relative;
+    }
+    .sym-energy::before {
+        content: '';
+        position: absolute;
+        inset: 6px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,160,30,0.6) 0%, transparent 70%);
+    }
+    .sym-energy::after {
+        content: '✦';
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgba(255,180,60,0.9);
+        font-size: 1.2rem;
+    }
+
+    /* Focus — diamond with crosshair */
+    .sym-focus {
+        width: 44px; height: 44px;
+        border: 2px solid rgba(40,160,255,0.7);
+        transform: rotate(45deg);
+        box-shadow: 0 0 12px rgba(0,140,255,0.4);
+        position: relative;
+    }
+    .sym-focus::after {
+        content: '';
+        position: absolute;
+        inset: 8px;
+        border: 1px solid rgba(40,160,255,0.4);
+        transform: rotate(0deg);
+    }
+
+    /* Purpose — triangle within circle */
+    .sym-purpose {
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        border: 2px solid rgba(140,60,255,0.7);
+        box-shadow: 0 0 12px rgba(120,40,220,0.4);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sym-purpose::after {
+        content: '▲';
+        color: rgba(160,80,255,0.8);
+        font-size: 1.1rem;
+        line-height: 1;
+        margin-top: 2px;
+    }
+
+    /* Strength — double nested squares */
+    .sym-strength {
+        width: 44px; height: 44px;
+        border: 2px solid rgba(220,50,60,0.8);
+        box-shadow: 0 0 12px rgba(200,30,50,0.4);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sym-strength::after {
+        content: '';
+        width: 22px; height: 22px;
+        border: 2px solid rgba(220,50,60,0.5);
+        position: absolute;
+        transform: rotate(20deg);
+    }
+
+    /* Peace — circle with horizontal line */
+    .sym-peace {
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        border: 2px solid rgba(0,200,180,0.7);
+        box-shadow: 0 0 12px rgba(0,180,160,0.4);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sym-peace::before {
+        content: '';
+        position: absolute;
+        width: 60%;
+        height: 1px;
+        background: rgba(0,200,180,0.6);
+    }
+    .sym-peace::after {
+        content: '';
+        position: absolute;
+        height: 50%;
+        width: 1px;
+        background: rgba(0,200,180,0.6);
+        top: 50%;
+    }
+
+    /* Clarity — starburst / asterisk */
+    .sym-clarity {
+        width: 48px; height: 48px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sym-clarity::before {
+        content: '✳';
+        font-size: 2.4rem;
+        color: rgba(180,200,255,0.8);
+        text-shadow: 0 0 10px rgba(180,200,255,0.6);
+    }
+
+    /* Harmony — two interlocking circles */
+    .sym-harmony {
+        width: 56px; height: 36px;
+        position: relative;
+    }
+    .sym-harmony::before,
+    .sym-harmony::after {
+        content: '';
+        position: absolute;
+        width: 32px; height: 32px;
+        border-radius: 50%;
+        border: 2px solid rgba(60,200,100,0.7);
+        box-shadow: 0 0 8px rgba(40,180,80,0.3);
+        top: 0;
+    }
+    .sym-harmony::before { left: 0; }
+    .sym-harmony::after  { right: 0; }
+
+    /* Vitality — upward arrow in circle */
+    .sym-vitality {
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        border: 2px solid rgba(0,210,240,0.7);
+        box-shadow: 0 0 12px rgba(0,190,220,0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .sym-vitality::after {
+        content: '↑';
+        color: rgba(0,220,250,0.9);
+        font-size: 1.4rem;
+        line-height: 1;
+    }
+
+    /* Joy — eight pointed star */
+    .sym-joy {
+        width: 48px; height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sym-joy::before {
+        content: '✸';
+        font-size: 2.6rem;
+        color: rgba(255,100,160,0.85);
+        text-shadow: 0 0 12px rgba(255,80,140,0.6);
+    }
+
+    /* Growth — upward spiral / triangle stack */
+    .sym-growth {
+        width: 48px; height: 48px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sym-growth::before {
+        content: '▲';
+        font-size: 2rem;
+        color: rgba(40,180,80,0.85);
+        text-shadow: 0 0 10px rgba(30,160,70,0.5);
+        position: absolute;
+        top: 2px;
+    }
+    .sym-growth::after {
+        content: '▲';
+        font-size: 1rem;
+        color: rgba(40,180,80,0.4);
+        position: absolute;
+        bottom: 2px;
+    }
+
+    /* Challenges — broken circle / arc */
+    .sym-challenges {
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        border: 2px solid rgba(200,180,60,0.3);
+        box-shadow: 0 0 10px rgba(180,160,40,0.3);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sym-challenges::before {
+        content: '⚡';
+        font-size: 1.4rem;
+        color: rgba(220,190,60,0.9);
+        text-shadow: 0 0 10px rgba(200,170,40,0.6);
+    }
+
+}
