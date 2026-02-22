@@ -7,7 +7,7 @@
     display: none; /* hidden on desktop */
 }
 
-@media (max-width: 768px) and (pointer: coarse) {
+@media (max-width: 768px) {
 
     .tarot-deck {
         display: flex;
