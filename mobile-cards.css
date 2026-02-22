@@ -19,6 +19,9 @@
         position: relative;
         z-index: 1;
     }
+   .orbit-section {
+        display: none;
+    }
 
     /* ── Individual card ─────────────────────────────────────── */
     .tarot-card {
